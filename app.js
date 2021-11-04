@@ -2,11 +2,14 @@
 
 const express = require("express");
 const app = express();
+const yelp = require('yelp-fusion');
+const axios = require('axios');
+
 
 // Client ID
 // aFkOwjEgzWErXwZvs0G8Rw
 
-const yelp = require('yelp-fusion');
+
 
 // Place holder for Yelp Fusion's API Key. Grab them
 // from https://www.yelp.com/developers/v3/manage_app
@@ -19,15 +22,26 @@ const searchRequest = {
 
 const client = yelp.client(apiKey);
 
-client.search(searchRequest).then(response => {
-  const firstResult = response.jsonBody.businesses[0];
-  const prettyJson = JSON.stringify(firstResult, null, 4);
-  console.log(prettyJson); 
-}).catch(e => {
-  console.log(e);
-});
+// client.search(searchRequest).then(response => {
+//   const firstResult = response.jsonBody.businesses[0];
+//   const prettyJson = JSON.stringify(firstResult, null, 4);
+//   console.log(prettyJson); 
+// }).catch(e => {
+//   console.log(e);
+// });
 
-app.get("https://api.yelp.com/v3/businesses/search", (req, res) => console.log( res));
+
+axios.get('https://api.yelp.com/v3/businesses/search?location=van nuys', {
+  headers: {
+    'Authorization': `Bearer ${apiKey}`
+  }
+})
+.then((res) => {
+  console.log(res.data)
+})
+.catch((error) => {
+  console.error(error)
+})
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
