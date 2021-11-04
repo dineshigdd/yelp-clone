@@ -1,0 +1,10 @@
+.review-stars{
+   padding: 2px;
+}
+
+.review-stars > svg{
+    background-color: red;
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+}
