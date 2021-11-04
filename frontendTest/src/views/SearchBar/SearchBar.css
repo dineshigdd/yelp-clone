@@ -1,0 +1,101 @@
+.search-bar-outer-container{
+    display: flex;
+    height: fit-content;
+    max-width: inherit;    
+}
+
+.search-bar-inner-container{
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;    
+    padding-bottom: 5px;
+}
+
+.search-bar-inner-container> button {
+    height: -webkit-fill-available;
+    background-color: lightcoral;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    
+}
+
+.search-criteria, .location-input{
+    display: inline-flex;
+    width: 300px;
+    height: -webkit-fill-available;
+    border: none;
+
+}
+
+.search-criteria{
+    border-right: 1px solid rgb(219, 217, 217);
+}
+
+.location-input{
+    border-left: 1px solid rgb(219, 217, 217);
+}
+
+.search-icon-contianer > svg{
+    display: flex;
+    color: white;
+    background-color: #F40D15;
+    padding: 5px;
+    border-top-right-radius:  5px;
+    border-bottom-right-radius: 5px;
+    height: 1.13em;
+}
+
+/*search icon */
+/* svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeLarge.css-tzssek-MuiSvgIcon-root{
+    display: flex;
+    color: white;
+    background-color: #F40D15;
+    padding: 5px;
+    border-top-right-radius:  5px;
+    border-bottom-right-radius: 5px;
+    height: 1.13em;
+
+} */
+
+.mobile-cancel-link{
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .search-bar-outer-container , .search-criteria,.search-icon-container{
+      flex-direction: column;
+    }
+
+    .search-criteria, .location-input{
+        width: 90vw;
+        height: 30px;
+        margin: 5px 0;
+    }
+
+    
+    .mobile-search-icon-contianer {
+        display: flex;
+        min-width: 95vw;
+        align-self: 25px;
+        justify-content: space-between;
+        position: inherit;
+    }
+
+    .mobile-cancel-link,   .mobile-search-icon-contianer > svg{
+        display: flex;      
+        align-self:normal;  
+        margin: 14px;
+        color: white;
+        background-color: #F40D15;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+        
+    .mobile-search-icon-contianer > svg{       
+        padding: 2px 19px;
+        font-size: 25px;
+    }
+  }

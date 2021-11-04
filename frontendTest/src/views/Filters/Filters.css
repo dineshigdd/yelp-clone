@@ -1,0 +1,105 @@
+.filters-section-subheadings{
+    font-size: 16px;;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 45px;
+}
+
+.filter-items-container{
+    display: flex;
+    border-radius:5px;
+}
+
+.filter-items-container li:first-child{
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.filter-items-container li:last-child{
+    padding-right: 10px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.filter-items{
+    font-size: 12px;
+    display: flex;
+    font-weight: bold; 
+    list-style: none;
+    border: 1px solid rgb(179, 170, 170);
+    padding: 8px 20px;
+}
+
+.list-items{
+    margin:2.5px;
+}
+
+.input-overlap{   
+    position: absolute;
+    border-radius: 50px;
+    padding: 1.8px;
+}
+
+.input-overlap:hover{
+    background-color: #eeeeef;;
+    transition: background-color .2s ease-in-out;
+}
+
+
+.list-items > div> input {    
+    /* position: absolute;
+    z-index: 200;
+    width: 20px;
+    height: 20px;
+    margin-right: 15px; */
+    
+    opacity: 0.5;
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    
+}
+
+.list-item-name{
+    margin-left:35px;    
+    margin-top: 2px;
+}
+
+.items-container{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.items-container > li{
+    list-style: none;
+    display: flex;
+}   
+
+.items-container > li > input{    
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    border-radius: 5px;
+}
+
+.see-all{
+    color: rgba(7, 124, 7, 0.801);
+    text-align: left;
+    margin-left: 45px;
+    margin-top: -15px;
+    font-weight: 600;
+}
+
+/*--Mobile styles start ---*/
+@media (min-width: 300px) and (max-width: 800px){
+
+    .filter-section{
+        min-width: 90vw;
+        margin-left: 3vw;
+    }
+    
+    .filter-items-container {
+        justify-content: center;
+    }
+}
