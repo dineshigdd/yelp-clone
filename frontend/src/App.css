@@ -16,12 +16,13 @@
   font-size: 14px;
   line-height: 20px;
   z-index: 1000;
-
+  padding-top: 10px;
 }
 
 .App-logo-and-menu-container{
     display: flex;    
     z-index: inherit;
+    margin-right: auto;
 }
 
 .App-main-section{
@@ -51,6 +52,8 @@
 .App-search-bar-container{  
   box-shadow: lightgray 2px 5px 10px 6px;
   border-radius: 5px;
+  min-width: 45vw;
+  margin:auto;
 }
 
 
@@ -58,6 +61,7 @@
 /*styles for right section of the header begins*/
 .App-header-right-corner {
   display: inherit;
+  margin-right: auto;
 }
 
 
@@ -118,6 +122,13 @@
 
 }
 
+.App-logo-and-menu-container > svg{
+  display: none;
+}
+
+.mobile-filter-list-map-links{
+  display: none;
+}
 
 /*styles for right section of the header ends*/
 

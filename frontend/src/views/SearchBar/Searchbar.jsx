@@ -16,7 +16,7 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState }) {
                     IsFilterListMapButtonState( true )}} className="mobile-cancel-link">
             <a>Cancel</a>
             </div>
-            <SearchRoundedIcon className="search-icon" fontSize="large" />
+            <SearchRoundedIcon  fontSize="large" />
        </div>
         )
     }
@@ -26,25 +26,41 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState }) {
         // <div>
             <div className="search-bar-outer-container">   
                 <div className="search-bar-inner-container">
-                    <input onClick={()=>{ 
-                        setInput( displayInputControls );
-                        LogoMenuState( displayButtonControls );
-                        IsFilterListMapButtonState( false )}} 
-                        list="search-criteria" name="browser" className="search-criteria" id="search-criteria" 
-                        placeholder="tacos, cheap dinner, Max's"/>
+                    <div id="mobile-search-input-container">
+                            <input onClick={()=>{ 
+                                setInput( displayInputControls );
+                                LogoMenuState( displayButtonControls );
+                                IsFilterListMapButtonState( false )}} 
+                                list="search-criteria" name="browser" className="search-criteria" id="search-criteria" 
+                                placeholder="tacos, cheap dinner, Max's"/>
 
-                    <datalist id="search-criteria">
-                        <option value="Edge" />
-                        <option value="Firefox" />
-                        <option value="Chrome" />
-                        <option value="Opera" />
-                        <option value="Safari" />
-                    </datalist>
-                   { input }                  
+                            <datalist id="search-criteria">
+                                <option value="Edge" />
+                                <option value="Firefox" />
+                                <option value="Chrome" />
+                                <option value="Opera" />
+                                <option value="Safari" />
+                            </datalist>
+                        { input }     
+                   </div>            
+
+                   <div id="lg-screen-search-input-container">
+                            <input list="search-criteria" name="browser" className="lg-screen-search-criteria" id="lg-screen-search-criteria" 
+                                placeholder="Dsektop tacos, cheap dinner, Max's"/>
+
+                            <datalist id="lg-screen-search-criteria">
+                                <option value="Edge" />
+                                <option value="Firefox" />
+                                <option value="Chrome" />
+                                <option value="Opera" />
+                                <option value="Safari" />
+                            </datalist>
+                            <input className="lg-screen-location-input" type="text"/>
+                   </div>             
                 </div>    
-               {/* <div className="search-icon-contianer">
-                     { displayButtonControls }           
-                </div>               */}
+               <div className="search-icon-contianer">
+                        <SearchRoundedIcon className="search-icon" fontSize="large" />       
+                </div>              
              </div>
 
              

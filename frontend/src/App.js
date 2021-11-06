@@ -19,8 +19,6 @@ function App() {
  const [ isfilterListMapButtonState, setIsFilterListMapButtonState ] = useState(true);
  const [ filterBar, setFilterBar ] = useState( false );
  
-//  const Context = createContext(filterBar);
-//  const value = useContext(Context);
 
  const FilterListMapBar = ({ isfilter })=>(
           
