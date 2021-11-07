@@ -16,7 +16,7 @@
   font-size: 14px;
   line-height: 20px;
   z-index: 1000;
-  padding-top: 10px;
+  /* padding-top: 1vh; */
 }
 
 .App-logo-and-menu-container{

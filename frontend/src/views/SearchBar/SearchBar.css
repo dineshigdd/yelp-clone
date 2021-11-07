@@ -97,7 +97,7 @@
         min-width: 95vw;
         align-self: 25px;
         justify-content: space-between;
-        position: inherit;
+        /* position: inherit; */
     }
 
     .mobile-cancel-link,   .mobile-search-icon-contianer > svg{

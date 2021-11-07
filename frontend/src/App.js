@@ -17,8 +17,16 @@ function App() {
  </>);
 
  const [ isfilterListMapButtonState, setIsFilterListMapButtonState ] = useState(true);
- const [ filterBar, setFilterBar ] = useState( false );
+ const [ filterBar, setFilterBar ] = useState( true );
  
+ window.addEventListener('resize', function(event) {
+  console.log(document.body.clientWidth )
+  if( document.body.clientWidth < 800 ){
+    setFilterBar( false );
+  }else{
+    setFilterBar( true );
+  }
+}, true);
 
  const FilterListMapBar = ({ isfilter })=>(
           
@@ -159,3 +167,5 @@ function App() {
 }
 
 export default App;
+
+
