@@ -4,7 +4,9 @@ import { Review } from '..'
 import hotel from '../../assests/images/hotel.jpg';
 
 
-function SearchResult() {
+function SearchResult() {    
+
+
     return (
         <div className="search-result-container">
             <p className="search-result-heading">The 10 Best Places near 7557 S Sepulveda Blvd, Los Angeles, CA 90045</p>

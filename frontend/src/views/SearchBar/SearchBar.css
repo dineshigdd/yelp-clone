@@ -52,6 +52,7 @@
     border-top-right-radius:  5px;
     border-bottom-right-radius: 5px;
     height: 1.18em;
+    cursor: pointer;
 }
 
 .mobile-search-icon-contianer > svg{  

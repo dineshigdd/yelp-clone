@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './SearchBar.css'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import { handleSubmit } from '../../helper/search';
 
 function SearchBar({ LogoMenuState , IsFilterListMapButtonState }) {
     const [ input , setInput] = useState();
@@ -58,7 +59,7 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState }) {
                             <input className="lg-screen-location-input" type="text"/>
                    </div>             
                 </div>    
-               <div className="search-icon-contianer">
+               <div className="search-icon-contianer" onClick={ handleSubmit }>
                         <SearchRoundedIcon className="search-icon" fontSize="large" />       
                 </div>              
              </div>
