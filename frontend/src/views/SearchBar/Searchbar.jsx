@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState  } from 'react';
 import './SearchBar.css'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { getBusinsessInfo } from '../../actions/bussiness';
-import { useSelector } from 'react-redux';
-import e from 'cors';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 function SearchBar({ LogoMenuState , IsFilterListMapButtonState }) {
     
@@ -31,10 +29,6 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState }) {
         )
     }
     
-    //dispatching redux actions
-// useEffect(()=>{
-//     dispatch(getBusinsessInfo());
-//   },[dispatch]);
    
 
     return (
