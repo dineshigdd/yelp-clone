@@ -4,15 +4,12 @@ import { SearchBar , Filters , Map , SearchResult } from './views'
 import MenuIcon from '@mui/icons-material/Menu';
 import { useEffect, useState , createContext, useContext } from 'react';
 import { useDispatch } from 'react-redux';
-import { getBusinsessInfo } from './actions/bussiness';
-import { useSelector } from 'react-redux';
+
 
 function App() {
  const [state, setstate] = useState(null);
  const [btnState, setBtnstate] = useState(true);
- const dispatch = useDispatch();
  
- const businesses =  useSelector( ( state ) => state.businesses )
  
 //  const [ filterbtnState, setFilterBtnstate] = useState(false);
  
@@ -94,10 +91,10 @@ function App() {
 },[filterBar]);
 
 
-//dispatching redux actions
-useEffect(()=>{
-  dispatch(getBusinsessInfo());
-},[dispatch]);
+// //dispatching redux actions
+// useEffect(()=>{
+//   dispatch(getBusinsessInfo());
+// },[dispatch]);
  
 
 

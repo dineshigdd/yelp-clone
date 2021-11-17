@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SearchBar.css'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
-import { handleSubmit } from '../../helper/search';
+import { getBusinsessInfo } from '../../actions/bussiness';
+import { useSelector } from 'react-redux';
+import e from 'cors';
+import { useDispatch } from 'react-redux';
 
 function SearchBar({ LogoMenuState , IsFilterListMapButtonState }) {
+    
     const [ input , setInput] = useState();
+    const [ term, setTerm ] = useState();
+    const [ location, setLocation ] = useState();
+    const dispatch = useDispatch();
+ 
+    const businesses =  useSelector( ( state ) => state.businesses )
     // const [ button , setButton] = useState();
     
     const displayInputControls = ()=><input className="location-input" type="text"></input>;
@@ -22,6 +31,11 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState }) {
         )
     }
     
+    //dispatching redux actions
+// useEffect(()=>{
+//     dispatch(getBusinsessInfo());
+//   },[dispatch]);
+   
 
     return (
         // <div>
@@ -33,7 +47,8 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState }) {
                                 LogoMenuState( displayButtonControls );
                                 IsFilterListMapButtonState( false )}} 
                                 list="search-criteria" name="browser" className="search-criteria" id="search-criteria" 
-                                placeholder="tacos, cheap dinner, Max's"/>
+                                placeholder="tacos, cheap dinner, Max's"
+                             />
 
                             <datalist id="search-criteria">
                                 <option value="Edge" />
@@ -47,7 +62,9 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState }) {
 
                    <div id="lg-screen-search-input-container">
                             <input list="search-criteria" name="browser" className="lg-screen-search-criteria" id="lg-screen-search-criteria" 
-                                placeholder="Dsektop tacos, cheap dinner, Max's"/>
+                                placeholder="Dsektop tacos, cheap dinner, Max's"
+                                onChange={ (e)=>setTerm(e.target.value)}
+                                />
 
                             <datalist id="lg-screen-search-criteria">
                                 <option value="Edge" />
@@ -56,10 +73,12 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState }) {
                                 <option value="Opera" />
                                 <option value="Safari" />
                             </datalist>
-                            <input className="lg-screen-location-input" type="text"/>
+                            <input className="lg-screen-location-input" type="text" 
+                                onChange={ (e)=>setLocation( e.target.value )}
+                            />
                    </div>             
                 </div>    
-               <div className="search-icon-contianer" onClick={ handleSubmit }>
+               <div className="search-icon-contianer" onClick={  ()=>dispatch(getBusinsessInfo({ term, location })) }>
                         <SearchRoundedIcon className="search-icon" fontSize="large" />       
                 </div>              
              </div>

@@ -7,15 +7,18 @@
     "axios": "^0.24.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1",    
+    "express": "^4.17.1",
     "yelp-fusion": "^3.0.0"
   },
   "devDependencies": {
+    "concurrently": "^6.4.0",
     "nodemon": "^2.0.14"
   },
   "scripts": {
     "server": "nodemon .\\src\\app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\""   
   },
   "repository": {
     "type": "git",
