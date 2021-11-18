@@ -121,6 +121,15 @@ function App() {
       // setBtnstate( false )
      break;
 
+     case 'search-result-lg-screen':
+      const largeScreenSearchResult = [0,1,2];
+      setstate(<>        
+                <div className="App-sidebar-left"><Filters/></div>
+                <aside className="App-sidebar-right">                   
+                    { largeScreenSearchResult.map( e => <SearchResult /> ) }
+                </aside>
+              </>);   
+      break;
      default:
        //display list of search results
       const searchReasult = [0,1,2];
@@ -142,7 +151,11 @@ function App() {
             </div>
      
             <div className="App-search-bar-container">
-                <SearchBar LogoMenuState={ setLogoMenuState } IsFilterListMapButtonState = { setIsFilterListMapButtonState }/>
+                <SearchBar 
+                  LogoMenuState={ setLogoMenuState } 
+                  IsFilterListMapButtonState = { setIsFilterListMapButtonState }
+                  displaySections = { displaySections }
+                  />
                 
             </div>
 
