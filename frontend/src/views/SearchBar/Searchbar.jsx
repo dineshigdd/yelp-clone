@@ -2,7 +2,7 @@ import React, { useState  } from 'react';
 import './SearchBar.css'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { getBusinsessInfo } from '../../actions/bussiness';
-import { useSelector, useDispatch } from 'react-redux';
+import {  useDispatch } from 'react-redux';
 import { SearchResult } from '..';
 
 function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySections }) {
@@ -12,7 +12,9 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
     const [ location, setLocation ] = useState();
     const dispatch = useDispatch();
  
-    const businesses =  useSelector( ( state ) => state.businesses )
+    
+
+  
     // const [ button , setButton] = useState();
     
     const displayInputControls = ()=><input className="location-input" type="text"></input>;
@@ -74,8 +76,9 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
                    </div>             
                 </div>    
                <div className="search-icon-contianer" onClick={
-                        ()=>displaySections('search-result-lg-screen')
-                        // ()=>dispatch(getBusinsessInfo({ term, location }))
+                        ()=>{   displaySections('search-result-lg-screen');
+                                dispatch(getBusinsessInfo({ term, location }))
+                        }
                     }>
                         <SearchRoundedIcon className="search-icon" fontSize="large" />       
                 </div>              

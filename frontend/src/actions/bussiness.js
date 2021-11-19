@@ -7,8 +7,8 @@ export const getBusinsessInfo = (search) => async(dispatch)=>{
     try{
         
        const { data } =  await api.fetchBussinessInfo(search);
-       console.log( data.data );
-        // dispatch( { type : 'FETCH_ALL', payload: data} );
+       console.log( data.businesses );
+        dispatch( { type : 'FETCH_ALL', payload: data.businesses } );
     }catch(error){
         console.log( error );
     }

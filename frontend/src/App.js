@@ -3,13 +3,19 @@ import './App.css';
 import { SearchBar , Filters , Map , SearchResult } from './views'
 import MenuIcon from '@mui/icons-material/Menu';
 import { useEffect, useState , createContext, useContext } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 function App() {
  const [state, setstate] = useState(null);
  const [btnState, setBtnstate] = useState(true);
- 
+
+ const businesses =  useSelector( ( state ) => state.businesses );
+ console.log( businesses);
+
+
+
+
  
 //  const [ filterbtnState, setFilterBtnstate] = useState(false);
  
@@ -23,7 +29,7 @@ function App() {
  const [ filterBar, setFilterBar ] = useState( true );
  
  window.addEventListener('resize', function(event) {
-  console.log(document.body.clientWidth )
+  // console.log(document.body.clientWidth )
   if( document.body.clientWidth < 800 ){
     setFilterBar( false );
   }else{
@@ -122,11 +128,11 @@ function App() {
      break;
 
      case 'search-result-lg-screen':
-      const largeScreenSearchResult = [0,1,2];
+               
       setstate(<>        
                 <div className="App-sidebar-left"><Filters/></div>
                 <aside className="App-sidebar-right">                   
-                    { largeScreenSearchResult.map( e => <SearchResult /> ) }
+                    { businesses.map( business => <SearchResult business={ business }/> ) }
                 </aside>
               </>);   
       break;

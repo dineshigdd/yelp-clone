@@ -2,30 +2,32 @@ import React from 'react'
 import './SearchResult.css'
 import { Review } from '..'
 import hotel from '../../assests/images/hotel.jpg';
+import { useSelector } from 'react-redux';
 
+function SearchResult({ business }) {    
+    //  const businesses =  useSelector( ( state ) => state.businesses );
 
-function SearchResult() {    
-
-
+    // business.categories.map( item =>console.log(  item));
+     
     return (
         <div className="search-result-container">
             <p className="search-result-heading">The 10 Best Places near 7557 S Sepulveda Blvd, Los Angeles, CA 90045</p>
             <div className="single-search-result-container">
                 <div>
-                    <img className="search-result-image" src={ hotel }/>  
+                    <img className="search-result-image" src={ business.image_url }/>  
                 </div>   
 
                 <div className="search-result-info">           
                      <div className="search-result-top">            
                         <div className="name-and-reviews">
-                            <p>Local sandwich shop</p>
+                            <p>{ business.name }</p>
                             <div className="reviews-container">
-                                <span><Review /></span><span>1114 reviews</span>
+                                <span><Review /></span><span>{ business.review_count }</span>
                             </div>       
-                            <ul className="applied-filters">
-                                <li>$$$</li>
-                                <li>Sri Lankan dish</li>
-                                <li>Rice and curry</li>                      
+                            <ul className="applied-filters">                                                          
+                                 { business.categories.map( (item,key) =><li key={ key }>{ item.alias }</li>)}
+                                <li>{ business.price }</li>
+                                <li>{ business.location.city }</li>              
                             </ul>
                         </div>         
                     </div>
