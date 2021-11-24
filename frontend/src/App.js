@@ -3,20 +3,33 @@ import './App.css';
 import { SearchBar , Filters , Map , SearchResult } from './views'
 import MenuIcon from '@mui/icons-material/Menu';
 import { useEffect, useState , createContext, useContext } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector  } from 'react-redux';
+import {  useDispatch } from 'react-redux';
+import { getBusinsessInfo } from './actions/bussiness';
+
+
+
+
+
 
 
 function App() {
- const [state, setstate] = useState(null);
+
+  const [state, setstate] = useState(null);
  const [btnState, setBtnstate] = useState(true);
-
- const businesses =  useSelector( ( state ) => state.businesses );
- console.log( businesses);
-
-
-
-
  
+ const location = 'Los Angeles, CA';
+ const term  = '';
+ 
+ // dispatching redux actions
+ 
+ const dispatch = useDispatch();
+
+useEffect(()=>{  
+  dispatch(getBusinsessInfo({ term, location }));
+},[dispatch]);
+
+
 //  const [ filterbtnState, setFilterBtnstate] = useState(false);
  
 
@@ -37,8 +50,9 @@ function App() {
   }
 }, true);
 
- const FilterListMapBar = ({ isfilter })=>(
-          
+
+
+ const FilterListMapBar = ({ isfilter })=>(          
          
             <div className="mobile-filter-list-map-links">
                           <div>
@@ -84,24 +98,17 @@ function App() {
   
  useEffect(()=> {  
   
-      if( !filterBar ){
-     
-        setstate(null);
-       
-        
-    }else{  
-    
-      setstate(<div className="App-sidebar-left"><Filters/></div>);
-   
+      if( !filterBar ){     
+        setstate(null);            
+    }else{      
+      setstate(<div className="App-sidebar-left"><Filters/></div>);   
     } 
 },[filterBar]);
 
 
-// //dispatching redux actions
-// useEffect(()=>{
-//   dispatch(getBusinsessInfo());
-// },[dispatch]);
+
  
+
 
 
  const displaySections = ( component )=>{
@@ -127,26 +134,24 @@ function App() {
       // setBtnstate( false )
      break;
 
-     case 'search-result-lg-screen':
-               
-      setstate(<>        
-                <div className="App-sidebar-left"><Filters/></div>
-                <aside className="App-sidebar-right">                   
-                    { businesses.map( business => <SearchResult business={ business }/> ) }
-                </aside>
-              </>);   
+     case 'search-result-lg-screen':        
+    //  setstate(
+    //  <>        
+    //   <div className="App-sidebar-left"><Filters/></div>
+    //   <aside className="App-sidebar-right">     <SearchResult businesses={ businesses }/>
+    //           {/* { businesses.map( ( business, key) => <SearchResult key={ key } business={ business }/> ) } */}
+    //   </aside>
+    // </>
+    // );  
+     
       break;
      default:
        //display list of search results
       const searchReasult = [0,1,2];
       setstate(<aside className="App-sidebar-right">{ searchReasult.map( e => <SearchResult /> ) }</aside>);     
       // setBtnstate( false )
+      break;
    }
-
-
-  
-
-
     } 
  
   return (
@@ -160,12 +165,10 @@ function App() {
                 <SearchBar 
                   LogoMenuState={ setLogoMenuState } 
                   IsFilterListMapButtonState = { setIsFilterListMapButtonState }
-                  displaySections = { displaySections }
+                  displaySections = { displaySections }   
                   />
                 
-            </div>
-
-        
+            </div>      
         
             <div className="App-header-right-corner">
               <div>
@@ -184,13 +187,15 @@ function App() {
       {/* { filterListMapButtonState }  */}
         
        
-       {  state }
-     
+       {  state } 
+       <aside className="App-sidebar-right"><SearchResult /> </aside>
       </main>
       
     </div>
   );
 }
+
+
 
 export default App;
 

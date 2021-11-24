@@ -4,13 +4,16 @@ import { Review } from '..'
 import hotel from '../../assests/images/hotel.jpg';
 import { useSelector } from 'react-redux';
 
-function SearchResult({ business }) {    
-    //  const businesses =  useSelector( ( state ) => state.businesses );
 
-    // business.categories.map( item =>console.log(  item));
+function SearchResult() {     
      
-    return (
-        <div className="search-result-container">
+    
+const businesses =  useSelector( ( state ) => state.businesses ); 
+ 
+
+
+ return  businesses.map( ( business, key ) =>    
+        <div className="search-result-container" key={ key }>
             <p className="search-result-heading">The 10 Best Places near 7557 S Sepulveda Blvd, Los Angeles, CA 90045</p>
             <div className="single-search-result-container">
                 <div>
@@ -49,6 +52,7 @@ function SearchResult({ business }) {
             <div className="CTA-link"><a>Start Order</a></div> 
         </div>
     )
-}
+ }
+
 
 export default SearchResult

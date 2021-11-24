@@ -8,8 +8,8 @@ import { SearchResult } from '..';
 function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySections }) {
     
     const [ input , setInput] = useState();
-    const [ term, setTerm ] = useState();
-    const [ location, setLocation ] = useState();
+    const [ term, setTerm ] = useState(null);
+    const [ location, setLocation ] = useState(null);
     const dispatch = useDispatch();
  
     
@@ -32,7 +32,11 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
         )
     }
     
-   
+   const onsubmitHandler = async  (e) =>{
+       e.preventDefault();
+        dispatch(getBusinsessInfo({ term, location }));
+      
+   }
 
     return (
         // <div>
@@ -75,11 +79,7 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
                             />
                    </div>             
                 </div>    
-               <div className="search-icon-contianer" onClick={
-                        ()=>{   displaySections('search-result-lg-screen');
-                                dispatch(getBusinsessInfo({ term, location }))
-                        }
-                    }>
+               <div className="search-icon-contianer" onClick={ onsubmitHandler }>
                         <SearchRoundedIcon className="search-icon" fontSize="large" />       
                 </div>              
              </div>

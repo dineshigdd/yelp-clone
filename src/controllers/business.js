@@ -4,7 +4,8 @@ const axios = require('axios');
 const apiKey = 'DP73lJ7n5m9pL1hZ41GMoO4r2R0zLf8G7tess5ZDnAVt1mH1R4cEX9qsVLW3GRtYBqoZqyvTtQFYsZFRV1AO0A-TTCIMkDk70iQh1vAz7OGRyam_AgIU-ok0SMGCYXYx';
 const client = yelp.client(apiKey);
 
-const ex = { "businesses":[{
+
+const deafultBusiness = { "businesses":[{
     "id": "siuAT2O_VdNBdboJWbiV-Q",
     "alias": "tacos-tacuba-van-nuys",
     "name": "Tacos Tacuba",
@@ -94,33 +95,37 @@ const ex = { "businesses":[{
  
 module.exports = getBusinsessInfo = (  req, res ) =>
 {
-    // res.send( ex );
-    // const searchRequest = {
-    //     term:req.query.term,
-    //     location: req.query.location,
-    //     limit:3
-    // }
- 
-  
     
-    //     client.search(searchRequest).then(response => {
-    //         const firstResult = response.jsonBody.businesses[0];
-    //         const prettyJson = JSON.stringify(firstResult, null, 4);
-    //         console.log(prettyJson);            
-    //         res.send( prettyJson );
-    //         }).catch(e => {
-    //           console.log(e);
-    //       });
+    // res.send( deafultBusiness );
+    let searchRequest = {
+        term:req.query.term,
+        location: req.query.location,
+        limit:2
+    }
+ 
+  console.log( searchRequest.term + " \n" + searchRequest.location );
+    
+        // client.search(searchRequest).then(response => {
+        //     const firstResult = response.jsonBody.businesses[0];
+        //     const prettyJson = JSON.stringify(firstResult, null, 4);
+        //     console.log(prettyJson);            
+        //     res.send( prettyJson );
+        //     }).catch(e => {
+        //       console.log(e);
+        //   });
+    //  if( location !== '' ){
+    //     searchRequest.location = "Los Angeles,CA"
+    //  }
 
     axios.get('https://api.yelp.com/v3/businesses/search', {
         headers: {
           Authorization: `Bearer ${apiKey}`
      },
-        params: {
-          term:req.query.term,
-          location: req.query.location ,
-          limit:2        
-     }})
+        params:          
+            searchRequest
+            
+         
+     })
      .then((response) => res.send(response.data))
      .catch((err) => console.log(err))
     

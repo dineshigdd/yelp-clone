@@ -2,7 +2,7 @@ import * as api from '../api';
 
 //Action creators
 
-export const getBusinsessInfo = (search) => async(dispatch)=>{
+export const getBusinsessInfo = (search) => async (dispatch)=>{
 
     try{
         
