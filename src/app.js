@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const businessesAPI = require("./routes/api/business");
+const reviewAPI = require("./routes/api/review");
 const cors = require('cors');
 
 
@@ -15,7 +16,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/search',businessesAPI);
-
+app.use('/businesses',reviewAPI);
 // const businessApiCall = async () => {
 //    const response = await businessesAPI.getBusinseeInfo();
 //    console.log( response.data.data);

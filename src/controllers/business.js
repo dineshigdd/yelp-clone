@@ -92,7 +92,6 @@ const deafultBusiness = { "businesses":[{
 ]
 };
 
- 
 module.exports = getBusinsessInfo = (  req, res ) =>
 {
     
@@ -103,7 +102,7 @@ module.exports = getBusinsessInfo = (  req, res ) =>
         limit:2
     }
  
-  console.log( searchRequest.term + " \n" + searchRequest.location );
+
     
         // client.search(searchRequest).then(response => {
         //     const firstResult = response.jsonBody.businesses[0];
@@ -126,7 +125,12 @@ module.exports = getBusinsessInfo = (  req, res ) =>
             
          
      })
-     .then((response) => res.send(response.data))
+     .then((response) => {
+        bussinesses = response.data;
+       
+        res.send(response.data);
+
+     })
      .catch((err) => console.log(err))
     
     

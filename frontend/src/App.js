@@ -5,10 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useEffect, useState , createContext, useContext } from 'react';
 import { useSelector  } from 'react-redux';
 import {  useDispatch } from 'react-redux';
-import { getBusinsessInfo } from './actions/bussiness';
-
-
-
+import { getBusinsessInfo, getReviews } from './actions/bussiness';
 
 
 
@@ -26,7 +23,10 @@ function App() {
  const dispatch = useDispatch();
 
 useEffect(()=>{  
-  dispatch(getBusinsessInfo({ term, location }));
+  dispatch(
+    // getBusinsessInfo({ term, location }),
+    getReviews('siuAT2O_VdNBdboJWbiV-Q')
+  );
 },[dispatch]);
 
 

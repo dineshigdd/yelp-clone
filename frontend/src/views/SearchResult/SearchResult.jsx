@@ -37,8 +37,8 @@ const businesses =  useSelector( ( state ) => state.businesses );
                     
                     <div className="contact-info-container">                 
                         <div className="address-and-phone">
-                            <p>4919 coldwater cyn, sherman oaks, CA 91423</p>
-                            <p>(818)984-2616</p>
+                            <p>{ business.display_address } </p>
+                            <p>{ business.display_phone }</p>
                         </div>
                     </div>
                     

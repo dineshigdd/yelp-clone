@@ -1,12 +1,12 @@
 const express = require("express");
-const getBusinsessInfo = require("../../controllers/business");
+const getBussinessReview = require("../../controllers/review");
 const router = express.Router();
 
 
 
 
 
-router.get("/",  getBusinsessInfo );
+router.get("/",  getBussinessReview );
 
 
 
