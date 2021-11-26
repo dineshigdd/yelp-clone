@@ -8,10 +8,10 @@ import { useSelector } from 'react-redux';
 function SearchResult() {     
      
    
-const businesses =  useSelector( ( state ) => state.state.businesses ); 
-const reviews =  useSelector( ( state ) => state.state.reviews ); 
+const businesses =  useSelector( ({ state }) => state.businesses ); 
+const reviews =  useSelector( ( { state } ) => state.reviews ); 
 
-console.log( reviews[0].text);
+// console.log( reviews[0].text);
 // reviews.map( review[0] => console.log( review.text));
 //  return <div>Test</div>
 
