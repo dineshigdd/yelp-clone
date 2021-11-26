@@ -7,12 +7,15 @@ import { useSelector } from 'react-redux';
 
 function SearchResult() {     
      
-    
-const businesses =  useSelector( ( state ) => state.businesses ); 
- 
-console.log( businesses)
+   
+const businesses =  useSelector( ( state ) => state.state.businesses ); 
+const reviews =  useSelector( ( state ) => state.state.reviews ); 
 
- return  businesses.map( ( business, key ) =>    
+console.log( reviews[0].text);
+// reviews.map( review[0] => console.log( review.text));
+//  return <div>Test</div>
+
+ return   businesses.map( ( business, key ) =>    
         <div className="search-result-container" key={ key }>
             <p className="search-result-heading">The 10 Best Places near 7557 S Sepulveda Blvd, Los Angeles, CA 90045</p>
             <div className="single-search-result-container">
@@ -41,11 +44,8 @@ console.log( businesses)
                             <p>{ business.display_phone }</p>
                         </div>
                     </div>
-                    
-                    <div>"This is the finnest restuarant I have been to for years. 
-                            I never expect it to be this good. I will come back again 
-                            because their prices are co cheap that I forget what I am easting"
-                    </div>       
+                     <p>{ `"${reviews[0].text}"` }<a><strong>more</strong></a></p>
+                    {/* { reviews.map( review => <div>{review.text }</div>)}   */}
                   
                 </div>
             </div>
@@ -55,4 +55,4 @@ console.log( businesses)
  }
 
 
-export default SearchResult
+export default SearchResult;

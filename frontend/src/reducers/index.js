@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import businesses from './business';
-import review from './review'
+import state from './business';
 
-export default combineReducers({ businesses });
+export default combineReducers({ state  });
