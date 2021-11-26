@@ -92,47 +92,57 @@ const deafultBusiness = { "businesses":[{
 ]
 };
 
-module.exports = getBusinsessInfo = (  req, res ) =>
-{
-    
+module.exports = {
+
+
+getBusinsessInfo : (  req, res ) => {
+  
     // res.send( deafultBusiness );
     let searchRequest = {
         term:req.query.term,
         location: req.query.location,
         limit:2
     }
- 
-
-    
-        // client.search(searchRequest).then(response => {
-        //     const firstResult = response.jsonBody.businesses[0];
-        //     const prettyJson = JSON.stringify(firstResult, null, 4);
-        //     console.log(prettyJson);            
-        //     res.send( prettyJson );
-        //     }).catch(e => {
-        //       console.log(e);
-        //   });
-    //  if( location !== '' ){
-    //     searchRequest.location = "Los Angeles,CA"
-    //  }
+  
+        
 
     axios.get('https://api.yelp.com/v3/businesses/search', {
         headers: {
           Authorization: `Bearer ${apiKey}`
      },
-        params:          
-            searchRequest
-            
+        params: searchRequest           
          
      })
      .then((response) => {
-        bussinesses = response.data;
-       
+        bussinesses = response.data;       
         res.send(response.data);
 
      })
      .catch((err) => console.log(err))
-    
-    
+    }
+    ,
 
+
+
+    //------------------
+    getBussinessReview : ( req, res ) => {
+        
+        const { id } = req.params;
+          
+          axios.get(`https://api.yelp.com/v3/businesses/${id}/reviews`, {
+              headers: {
+                Authorization: `Bearer ${apiKey}`
+           },
+          })
+           .then((response) => {
+                // console.log( response.data );
+             
+               res.send(response.data);
+      
+           })
+           .catch((err) => console.log(err))
+          
+      }
 }
+
+

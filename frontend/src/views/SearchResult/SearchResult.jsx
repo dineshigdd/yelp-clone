@@ -10,7 +10,7 @@ function SearchResult() {
     
 const businesses =  useSelector( ( state ) => state.businesses ); 
  
-
+console.log( businesses)
 
  return  businesses.map( ( business, key ) =>    
         <div className="search-result-container" key={ key }>

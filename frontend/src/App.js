@@ -5,8 +5,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useEffect, useState , createContext, useContext } from 'react';
 import { useSelector  } from 'react-redux';
 import {  useDispatch } from 'react-redux';
-import { getBusinsessInfo, getReviews } from './actions/bussiness';
-
+import { getBusinsessInfo , getReviews } from './actions/bussiness';
+// import {  getReviews } from './actions/review';
 
 
 
@@ -23,10 +23,8 @@ function App() {
  const dispatch = useDispatch();
 
 useEffect(()=>{  
-  dispatch(
-    // getBusinsessInfo({ term, location }),
-    getReviews('siuAT2O_VdNBdboJWbiV-Q')
-  );
+  dispatch( getBusinsessInfo({ term, location }));
+  dispatch( getReviews('_GxXKKCjz5jYDjpQs_KPZQ'));
 },[dispatch]);
 
 

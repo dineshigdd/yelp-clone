@@ -17,11 +17,12 @@ export const getBusinsessInfo = (search) => async (dispatch)=>{
 }
 
 
+
 export const getReviews = ( id ) => async ( dispatch ) => {
     try{
         const { data } = await api.fetchReviewInfo( id );
-        dispatch( { type : 'FETCH_REVIEWS', payload: data.businesses } );
-        console.log( data.businesses );
+        dispatch( { type : 'FETCH_REVIEWS', payload: data.reviews } );
+        // console.log( data );
     }catch( error ){
         console.log( error )
     }

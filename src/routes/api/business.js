@@ -1,13 +1,14 @@
 const express = require("express");
-const getBusinsessInfo = require("../../controllers/business");
+const { getBusinsessInfo , getBussinessReview  } = require("../../controllers/business");
+// const  {  } = require("../../controllers/business");
 const router = express.Router();
 
 
 
 
 
-router.get("/",  getBusinsessInfo );
-
+router.get("/search",  getBusinsessInfo );
+router.get("/:id",  getBussinessReview );
 
 
 

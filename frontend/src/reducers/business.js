@@ -1,8 +1,8 @@
 export default ( businesses = [], action ) => {
     switch( action.type ){
-        case 'FETCH_ALL':            
+        case 'FETCH_ALL':                      
             return action.payload;
-        case 'FETCH_REVIEW':
+        case 'FETCH_REVIEWS':
             return action.payload;
         default : 
             return businesses;
