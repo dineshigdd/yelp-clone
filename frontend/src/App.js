@@ -3,8 +3,7 @@ import './App.css';
 import { SearchBar , Filters , Map , SearchResult } from './views'
 import MenuIcon from '@mui/icons-material/Menu';
 import { useEffect, useState , createContext, useContext } from 'react';
-import { useSelector  } from 'react-redux';
-import {  useDispatch } from 'react-redux';
+import { useSelector , useDispatch } from 'react-redux';
 import { getBusinsessInfo , getReviews } from './actions/bussiness';
 // import {  getReviews } from './actions/review';
 
@@ -12,20 +11,23 @@ import { getBusinsessInfo , getReviews } from './actions/bussiness';
 
 function App() {
 
-  const [state, setstate] = useState(null);
+const [state, setstate] = useState(null);
  const [btnState, setBtnstate] = useState(true);
+ const businesses =  useSelector( ({ state }) => state.businesses ); 
  
  const location = 'Los Angeles, CA';
  const term  = '';
  
- // dispatching redux actions
- 
+ // dispatching redux actions 
  const dispatch = useDispatch();
+ let businessId = [];
+ businesses.map( business => businessId.push( business.id ));
+ businessId.map( id => dispatch( getReviews( id )));
 
 useEffect(()=>{  
   dispatch( getBusinsessInfo({ term, location }));
-  dispatch( getReviews('_GxXKKCjz5jYDjpQs_KPZQ'));
-},[dispatch]);
+  
+},[dispatch ]);
 
 
 

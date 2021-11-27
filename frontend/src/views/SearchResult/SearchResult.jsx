@@ -1,19 +1,35 @@
-import React from 'react'
+import React , { useEffect } from 'react'
 import './SearchResult.css'
 import { Review } from '..'
 import hotel from '../../assests/images/hotel.jpg';
-import { useSelector } from 'react-redux';
+import { useSelector , useDispatch } from 'react-redux';
+import { getReviews } from '../../actions/bussiness';
+import business from '../../reducers/business';
 
 
 function SearchResult() {     
      
    
 const businesses =  useSelector( ({ state }) => state.businesses ); 
-const reviews =  useSelector( ( { state } ) => state.reviews ); 
+
+
+
+
+const dispatch = useDispatch();
+useEffect(()=>{  
+
+    businesses.map( business =>  dispatch( getReviews( business.id )))
+     
+  },[dispatch]);
+  
+
+  const reviews =  useSelector( ( { state } ) => state.reviews )
+//   console.log( reviews );
+  
 
 // console.log( reviews[0].text);
 // reviews.map( review[0] => console.log( review.text));
-//  return <div>Test</div>
+// return <div>Test</div>
 
  return   businesses.map( ( business, key ) =>    
         <div className="search-result-container" key={ key }>
@@ -44,8 +60,8 @@ const reviews =  useSelector( ( { state } ) => state.reviews );
                             <p>{ business.display_phone }</p>
                         </div>
                     </div>
-                     <p>{ `"${reviews[0].text}"` }<a><strong>more</strong></a></p>
-                    {/* { reviews.map( review => <div>{review.text }</div>)}   */}
+                     {/* <p>{ `"${reviews[0].text}"` }<a><strong>more</strong></a></p> */}
+                    { reviews.map( review => <div>{review.text }</div>)}  
                   
                 </div>
             </div>
