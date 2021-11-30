@@ -3,7 +3,8 @@ const yelp = require('yelp-fusion');
 const axios = require('axios');
 const apiKey = 'DP73lJ7n5m9pL1hZ41GMoO4r2R0zLf8G7tess5ZDnAVt1mH1R4cEX9qsVLW3GRtYBqoZqyvTtQFYsZFRV1AO0A-TTCIMkDk70iQh1vAz7OGRyam_AgIU-ok0SMGCYXYx';
 const client = yelp.client(apiKey);
-
+let  businesses = null;
+let reviews = [];
 
 const deafultBusiness = { "businesses":[{
     "id": "siuAT2O_VdNBdboJWbiV-Q",
@@ -114,11 +115,17 @@ getBusinsessInfo : (  req, res ) => {
          
      })
      .then((response) => {
-        bussinesses = response.data;       
-        res.send(response.data);
+        
+        businesses = response.data;
+        response.data.businesses.map( e =>   getReviews( e.id)) ;
 
-     })
-     .catch((err) => console.log(err))
+        
+        // response.data.businesses.map( e => business.BusinessID.push(e.id) )
+        // business.BusinessID.map( id =>  getReviews(id))
+        // console.log( business )
+      
+      
+     }).catch((err) => console.log(err))
     }
     ,
 
@@ -126,7 +133,7 @@ getBusinsessInfo : (  req, res ) => {
 
     //------------------
     getBussinessReview : ( req, res ) => {
-        
+      
         const { id } = req.params;
           
           axios.get(`https://api.yelp.com/v3/businesses/${id}/reviews`, {
@@ -135,9 +142,12 @@ getBusinsessInfo : (  req, res ) => {
            },
           })
            .then((response) => {
-                // console.log( response.data );
-             
-               res.send(response.data);
+                //  response.data
+                    // businesses.businesses.map( e => e.reviews.push( response.data))
+                    // console.log( businesses )
+            //    res.send(response.data);
+              
+         
       
            })
            .catch((err) => console.log(err))
@@ -146,3 +156,48 @@ getBusinsessInfo : (  req, res ) => {
 }
 
 
+const getReviews = (businessId) => {
+     let i = 0;
+      axios.get(`https://api.yelp.com/v3/businesses/${businessId}/reviews`, {
+          headers: {
+            Authorization: `Bearer ${apiKey}`
+       },
+      })
+       .then((response) => {
+                reviews =  response.data.reviews.map( review =>  review )
+                // console.log( "The i is " + i);
+                // businesses.businesses.map( business =>  response.data.reviews.map( review => business.review = review))
+                // console.log( reviews)
+                // response.data.reviews.map( e => {
+                //     ( b => b.reviews = e.id)
+                // })
+                // console.log( businesses.businesses.reviews)
+                // businesses.businesses.map( e => console.log( e.id)   )
+                
+                // response.data.reviews.map( e =>businesses.reviews.push( e ) ) ; 
+            // return response.data;
+            // business.reviews.push( response.data. ) ;
+
+            // console.log( businesses.businesses.map( e=> e.reviews) );
+            //  businesses.businesses.reviews.map( e => console.log( e )) ; 
+  
+       }).then( ()=>{
+
+
+               
+            for ( let i = 0; i < businesses.businesses.length ; i++ ){
+                for( let k = 0; k < reviews.length ; k++ ){
+                         businesses.businesses[i].reviews = reviews[k];
+                }                      
+
+             }
+             console.log( businesses.businesses);
+       }
+     
+       )
+       .catch((err) => console.log(err))
+    
+      
+  }
+
+ 

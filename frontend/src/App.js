@@ -21,8 +21,10 @@ const [state, setstate] = useState(null);
  // dispatching redux actions 
  const dispatch = useDispatch();
  let businessId = [];
+
+ 
  businesses.map( business => businessId.push( business.id ));
- businessId.map( id => dispatch( getReviews( id )));
+//  businessId.map( id => dispatch( getReviews( id )));
 
 useEffect(()=>{  
   dispatch( getBusinsessInfo({ term, location }));
