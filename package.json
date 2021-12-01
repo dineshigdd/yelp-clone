@@ -18,7 +18,8 @@
     "server": "nodemon .\\src\\app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\""   
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "build": ".\frontend"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,5 @@
   "bugs": {
     "url": "https://github.com/dineshigdd/yelp-clone/issues"
   },
-  "homepage": "https://github.com/dineshigdd/yelp-clone#readme"
+  "homepage": "https://github.com/dineshigdd/yelp-clone/"
 }
