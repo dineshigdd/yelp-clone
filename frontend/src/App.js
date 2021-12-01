@@ -23,7 +23,7 @@ const [state, setstate] = useState(null);
  let businessId = [];
 
  
- businesses.map( business => businessId.push( business.id ));
+//  businesses.map( business => businessId.push( business.id ));
 //  businessId.map( id => dispatch( getReviews( id )));
 
 useEffect(()=>{  
@@ -31,7 +31,7 @@ useEffect(()=>{
   
 },[dispatch ]);
 
-
+businesses.map( business => dispatch( getReviews( business.id )));
 
 //  const [ filterbtnState, setFilterBtnstate] = useState(false);
  

@@ -16,6 +16,13 @@ const businesses =  useSelector( ({ state }) => state.businesses );
 
 
 const dispatch = useDispatch();
+const reviews =  useSelector( ( { state } ) => state.reviews )
+
+const comment = Object.keys(reviews).map( (e,k) =>  reviews[e].reviews.map( (item,i) => ( item )));
+// reviews[ Object.keys(reviews)].reviews
+//  Object.keys(reviews).reviews.map( review => console.log( review));
+
+
 useEffect(()=>{  
 
     businesses.map( business =>  dispatch( getReviews( business.id )))
@@ -23,8 +30,7 @@ useEffect(()=>{
   },[dispatch]);
   
 
-  const reviews =  useSelector( ( { state } ) => state.reviews )
-//   console.log( reviews );
+  
   
 
 // console.log( reviews[0].text);
@@ -59,9 +65,20 @@ useEffect(()=>{
                             <p>{ business.display_address } </p>
                             <p>{ business.display_phone }</p>
                         </div>
-                    </div>
+                    </div><>
+                        
+                        { 
+                        Object.keys(reviews).map( (e,k) =>  ( e == business.id) ? 
+                            reviews[e].reviews.map( (item, i)  => <p key={ i }>{ item.text }</p>)
+                                                      
+                            :'')
+
+                        }
+                        
+                        
+                        </>
                      {/* <p>{ `"${reviews[0].text}"` }<a><strong>more</strong></a></p> */}
-                    { reviews.map( review => <div>{review.text }</div>)}  
+                    {/* { reviews.map( review => <div>{review.text }</div>)}   */}
                   
                 </div>
             </div>
