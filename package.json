@@ -19,7 +19,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "frontend": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run frontend\"",
-    "build": "npm run frontend"
+    "f-build": "cd frontend && npm run build"
   },
   "repository": {
     "type": "git",
