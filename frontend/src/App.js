@@ -1,8 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import { SearchBar , Filters , Map , SearchResult } from './views'
 import MenuIcon from '@mui/icons-material/Menu';
-import { useEffect, useState , createContext, useContext } from 'react';
+import { useEffect, useState  } from 'react';
 import { useSelector , useDispatch } from 'react-redux';
 import { getBusinsessInfo , getReviews } from './actions/bussiness';
 // import {  getReviews } from './actions/review';
@@ -12,7 +11,7 @@ import { getBusinsessInfo , getReviews } from './actions/bussiness';
 function App() {
 
 const [state, setstate] = useState(null);
- const [btnState, setBtnstate] = useState(true);
+//  const [btnState, setBtnstate] = useState(true);
  const businesses =  useSelector( ({ state }) => state.businesses ); 
  
  const location = 'Los Angeles, CA';
@@ -20,7 +19,7 @@ const [state, setstate] = useState(null);
  
  // dispatching redux actions 
  const dispatch = useDispatch();
- let businessId = [];
+//  let businessId = [];
 
  
 //  businesses.map( business => businessId.push( business.id ));
@@ -37,7 +36,7 @@ businesses.map( business => dispatch( getReviews( business.id )));
  
 
  const [ logoMenuState , setLogoMenuState ] = useState(<>
-  <img className='yelp-logo'/>          
+  <img className='yelp-logo' alt="yelp-logo"/>          
   <MenuIcon className="mobile-menu-icon"/>
  </>);
 
@@ -177,8 +176,8 @@ businesses.map( business => dispatch( getReviews( business.id )));
         
             <div className="App-header-right-corner">
               <div>
-                <span><a>For Business</a></span>
-                <span><a>Write a review</a></span>
+                <span><a href="#">For Business</a></span>
+                <span><a href="#">Write a review</a></span>
               </div>
               <div>
                 <span className="App-auth-link App-login-link"><a>Log in</a></span>
