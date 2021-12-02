@@ -11,7 +11,7 @@ import { getBusinsessInfo , getReviews } from './actions/bussiness';
 function App() {
 
 const [state, setstate] = useState(null);
-//  const [btnState, setBtnstate] = useState(true);
+ const [btnState, setBtnstate] = useState(true);
  const businesses =  useSelector( ({ state }) => state.businesses ); 
  
  const location = 'Los Angeles, CA';
