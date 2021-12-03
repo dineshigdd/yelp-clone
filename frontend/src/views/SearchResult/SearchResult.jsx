@@ -6,6 +6,7 @@ import { useSelector , useDispatch } from 'react-redux';
 import { getReviews } from '../../actions/bussiness';
 import business from '../../reducers/business';
 import { color } from '@mui/system';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 
 
 function SearchResult() {     
@@ -49,7 +50,7 @@ useEffect(()=>{
                      <div className="search-result-top">            
                         <div className="name-and-reviews">
                             <p>{ business.name }</p>
-                            <div className="reviews-container">
+                            <div className="rating-container">
                                 <span><Review /></span><span>{ business.review_count }</span>
                             </div>       
                             <ul className="applied-filters">                                                          
@@ -66,7 +67,8 @@ useEffect(()=>{
                             <p>{ business.display_phone }</p>
                         </div>
                     </div>
-                        <>                        
+                        <div className="review-container">    
+                        <ChatBubbleOutlineIcon />            
                             { 
                             Object.keys(reviews).map( (e,k) =>  ( e == business.id) ? 
                                 reviews[e].reviews.map( (item, i)  => (i === 0 ) ?
@@ -75,7 +77,7 @@ useEffect(()=>{
                                 :'')
 
                             }                      
-                        </>              
+                        </div>              
                         
                 </div>
             </div>
