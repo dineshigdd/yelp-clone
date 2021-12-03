@@ -8,3 +8,5 @@ frontend
 Backend
     Nodejs
     
+you can access the app under development at
+https://yelp-clone-dinesh.netlify.app/
