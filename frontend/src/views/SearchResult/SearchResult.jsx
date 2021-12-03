@@ -5,6 +5,7 @@ import hotel from '../../assests/images/hotel.jpg';
 import { useSelector , useDispatch } from 'react-redux';
 import { getReviews } from '../../actions/bussiness';
 import business from '../../reducers/business';
+import { color } from '@mui/system';
 
 
 function SearchResult() {     
@@ -38,8 +39,7 @@ useEffect(()=>{
 // return <div>Test</div>
 
  return   businesses.map( ( business, key ) =>    
-        <div className="search-result-container" key={ key }>
-            <p className="search-result-heading">The 10 Best Places near 7557 S Sepulveda Blvd, Los Angeles, CA 90045</p>
+        <div className="search-result-container" key={ key }>           
             <div className="single-search-result-container">
                 <div>
                     <img className="search-result-image" src={ business.image_url }/>  
@@ -65,24 +65,23 @@ useEffect(()=>{
                             <p>{ business.display_address } </p>
                             <p>{ business.display_phone }</p>
                         </div>
-                    </div><>
-                        
-                        { 
-                        Object.keys(reviews).map( (e,k) =>  ( e == business.id) ? 
-                            reviews[e].reviews.map( (item, i)  => <p key={ i }>{ item.text }</p>)
-                                                      
-                            :'')
+                    </div>
+                        <>                        
+                            { 
+                            Object.keys(reviews).map( (e,k) =>  ( e == business.id) ? 
+                                reviews[e].reviews.map( (item, i)  => (i === 0 ) ?
+                                <p className="review-excerpt" key={ i }>{ item.text }<a href="#" style={{ textDecoration: "none" ,fontWeight:"bold" , color: "rgba(2,122,151,1)" }}>more</a></p>
+                                 : null )                                                       
+                                :'')
 
-                        }
+                            }                      
+                        </>              
                         
-                        
-                        </>
-                     {/* <p>{ `"${reviews[0].text}"` }<a><strong>more</strong></a></p> */}
-                    {/* { reviews.map( review => <div>{review.text }</div>)}   */}
-                  
                 </div>
             </div>
-            <div className="CTA-link"><a>Start Order</a></div> 
+            <div className="CTA-link-container">
+                 <div className="CTA-link"><a>Start Order</a></div> 
+            </div>
         </div>
     )
  }

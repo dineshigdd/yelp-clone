@@ -187,12 +187,19 @@ businesses.map( business => dispatch( getReviews( business.id )));
     </header>
 
       <main className="App-main-section">
+        
         { isfilterListMapButtonState ? <FilterListMapBar isfilter={ filterBar }/>:null }
       {/* { filterListMapButtonState }  */}
         
        
        {  state } 
-       <aside className="App-sidebar-right"><SearchResult /> </aside>
+       <div className="App-sidebar-right App-search-result-section">
+       <h2 className="search-result-heading">{ `The 10 Best Places near ${ location }`}</h2>
+       <h3 className="search-result-heading">All Results</h3>
+         <SearchResult /> 
+         
+         </div> 
+       <div><Map /></div>
       </main>
       
     </div>

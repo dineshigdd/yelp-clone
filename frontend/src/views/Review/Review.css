@@ -4,7 +4,7 @@
 
 .review-stars > svg{
     background-color: red;
-    width: 15px;
-    height: 15px;
-    border-radius: 2px;
+    width: 23px;
+    height: 23px;
+    border-radius: 3px
 }

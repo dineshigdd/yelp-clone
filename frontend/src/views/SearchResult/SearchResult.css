@@ -1,18 +1,19 @@
 .search-result-container {
-     border-bottom: 1px solid lightgray;
-    
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin: 25px;
+    padding: 20px;
 }
 
 .search-result-heading {
     text-align: left;
-    font-weight: 600;
-    
+    font-weight: 600;    
 }
 
 .single-search-result-container{
     display: flex;
     text-align: left;
-    color: rgb(71 70 70 / 62%)
+    color: rgb(71 70 70 / 62%);
 }
 
 .search-result-info {
@@ -20,8 +21,9 @@
 }
 
 .search-result-image{
-    width: 20vw;
-    height: 20vw;
+    width: 14vw;
+    height: 14vw;
+    border-radius: 5px;
 }
 
 
@@ -44,6 +46,18 @@
     padding: 5px;
 }
 
+.review-excerpt{
+    font-size: 14px;
+    font-weight: 400;
+    -webkit-letter-spacing: 0px;
+    -moz-letter-spacing: 0px;
+    -ms-letter-spacing: 0px;
+    letter-spacing: 0px;
+    line-height: 20px;
+    color: rgba(110,112,114,1);
+    text-align: left;
+}
+
 .applied-filters{
     display: flex;
     list-style: none;
@@ -59,13 +73,29 @@
     color: rgb(160, 155, 155);
 }
 
+
+.CTA-link-container{
+    display: flex;
+    justify-content: right;
+
+}
+
 .CTA-link {
     border: 1px solid #80808075;
-    border-radius: 3px;
-    margin-top: 10px;
-    margin-bottom: 25px;
-    padding: 5px 0px;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    border-radius: 5px;
+    padding: 10px 20px;
     font-weight: 600;
-    font-size: smaller;
-    color:#0995ec;
+    font-size: 16px;
+    color: rgba(45,46,47,1);
+    max-width: 100px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    margin-top: 1px;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+

@@ -44,8 +44,7 @@
 }
 
 .App-search-result-section{
-  background-color: lightcoral;
-  min-width: 57vw;
+    max-width: 57vw;
 }
 
 
