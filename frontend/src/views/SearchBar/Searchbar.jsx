@@ -1,5 +1,5 @@
 import React, { useState  } from 'react';
-import './SearchBar.css'
+import './SearchBar.scss'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { getBusinsessInfo } from '../../actions/bussiness';
 import {  useDispatch } from 'react-redux';

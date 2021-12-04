@@ -1,5 +1,5 @@
 import React , { useEffect } from 'react'
-import './SearchResult.css'
+import './SearchResult.scss'
 import { Review } from '..'
 import hotel from '../../assests/images/hotel.jpg';
 import { useSelector , useDispatch } from 'react-redux';

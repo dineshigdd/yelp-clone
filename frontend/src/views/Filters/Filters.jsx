@@ -1,5 +1,5 @@
 import React from 'react'
-import './Filters.css'
+import './Filters.scss'
 
 function Filters() {
      const numbers = [0,1,2,3];
