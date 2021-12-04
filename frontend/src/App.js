@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { SearchBar , Filters , Map , SearchResult } from './views'
 import MenuIcon from '@mui/icons-material/Menu';
 import { useEffect, useState  } from 'react';

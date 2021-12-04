@@ -70,13 +70,10 @@
 
 } */
 
-.mobile-cancel-link{
+.mobile-cancel-link , #mobile-search-input-container{
     display: none;
 }
 
-#mobile-search-input-container{
-    display: none;
-}
 
 @media (max-width: 800px) {
     .search-bar-outer-container , .search-criteria,.search-icon-container{

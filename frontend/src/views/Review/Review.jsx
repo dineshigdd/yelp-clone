@@ -1,6 +1,6 @@
 import React from 'react'
 import StarIcon from '@mui/icons-material/Star';
-import './Review.css';
+import './Review.scss';
 
 function Review() {
     const list = [ 0,1,2,3,4];
