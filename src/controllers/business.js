@@ -112,23 +112,27 @@ getBusinsessInfo : (  req, res ) => {
         headers: {
           Authorization: `Bearer ${apiKey}`
      },
-        params: searchRequest           
-         
+        params: searchRequest     
+        
      })
      .then((response) => {
         
         businesses = response.data;
-        res.send( response.data)
+        res.send( response.data);
         // getReviews(res)
         // businesses.businesses.map( e =>   getReviews( e.id)) ;
-        
+       
        
         // response.data.businesses.map( e => business.BusinessID.push(e.id) )
         // business.BusinessID.map( id =>  getReviews(id))
         // console.log( business )
       
       
-     }).catch((err) => console.log(err))
+     }).catch(err => { 
+        
+         console.log(err)
+
+     })
      
     }
     ,
@@ -138,22 +142,28 @@ getBusinsessInfo : (  req, res ) => {
 
     //------------------
     getBussinessReview : ( req, res ) => {
-        businesses.businesses.map( business => { 
+        const { id  } = req.params;
+        console.log( id )
+        // businesses.businesses.map( business => { 
        
-            axios.get(`https://api.yelp.com/v3/businesses/${business.id}/reviews`, {
+            axios.get(`https://api.yelp.com/v3/businesses/${ id }/reviews`, {
                 headers: {
                     Authorization: `Bearer ${apiKey}`
             },
             })
             .then(response =>  { 
-                    reviews[business.id] =  response.data;
-                    res.send( reviews )
+                    reviews[id] =  response.data;
+                    res.send( reviews );
+                   
                     // // test(res);
                     // index++;
                    
             })
-            .catch((err) => console.log(err))
-        })
+            .catch(err => { 
+                console.log("+++++++++++++++++++")
+                console.log(err)
+            })
+        // })
     //     const { id } = req.params;
         
     //       axios.get(`https://api.yelp.com/v3/businesses/${id}/reviews`, {
@@ -190,35 +200,11 @@ const getReviews = ( res ) => {
         .then(response =>  { 
                 reviews[business.name] =  response.data;
               
-                // test(res);
-                index++;
+               
                
         })
         .catch((err) => console.log(err))
     })
 
    
-}
-    
-
-
-function test( res ){
-    // for(let k = 0; k < reviews.reviews.length; k++ ){
-    //     reviewID.push(reviews.reviews[k].text);
-
-    //                 // businesses.businesses[index].reviews.push( reviews.reviews[k].id)
-    //     }
- 
-        // businesses.businesses[index].reviews = reviewID;
-    // console.log( businesses );
-    // businesses.businesses[index].id
-    console.log( reviews.reviews)
-    // for(let i = 0;i < businesses.businesses.length ; i++ ){
-    //     for(let k = i; k < reviews.reviews.length; k++ ){
-    //                     businesses.businesses[i].reviews = reviews.reviews[k].text;
-    //     }
-    // }
-   
-    
-    res.send( businesses );
 }

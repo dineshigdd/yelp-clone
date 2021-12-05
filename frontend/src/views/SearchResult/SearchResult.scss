@@ -62,21 +62,34 @@
     text-align: left;
 }
 
+
 .applied-filters{
     display: flex;
     list-style: none;
     padding: 0;
 }
 
-.applied-filters > li{
-    padding: 0px 5px;
-    color: rgb(54, 149, 209)
+
+.applied-filters > li{   
+    display: flex;
+    align-items: center;    
+    margin: 5px;
+    
 }
 
-.applied-filters > li:first-child{
-    color: rgb(160, 155, 155);
+.alias{
+    background-color: rgb(243, 239, 239); 
+    color:rgb(110,112,114);
+    padding: 8px 5px;
+    border-radius: 3px;
+    font-weight: 600;
 }
 
+.applied-filters > li:nth-child(4)::after{
+    content: '\00a0\2022\00a0';
+    margin-left: 10px;
+    margin-right: -5px;
+}
 
 .CTA-link-container{
     display: flex;

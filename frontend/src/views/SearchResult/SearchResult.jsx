@@ -54,7 +54,7 @@ useEffect(()=>{
                                 <span><Review /></span><span>{ business.review_count }</span>
                             </div>       
                             <ul className="applied-filters">                                                          
-                                 { business.categories.map( (item,key) =><li key={ key }>{ item.alias }</li>)}
+                                 { business.categories.map( (item,key) =><li className="alias" key={ key }>{ item.alias }</li>)}
                                 <li>{ business.price }</li>
                                 <li>{ business.location.city }</li>              
                             </ul>
@@ -64,7 +64,6 @@ useEffect(()=>{
                     <div className="contact-info-container">                 
                         <div className="address-and-phone">
                             <p>{ business.display_address } </p>
-                            <p>{ business.display_phone }</p>
                         </div>
                     </div>
                         <div className="review-container">    
