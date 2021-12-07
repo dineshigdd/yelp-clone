@@ -49,6 +49,7 @@
 .review-container{
     display: flex;
 }
+
 .review-excerpt{
     margin: 0 0 0 5px;
     font-size: 14px;
@@ -116,3 +117,35 @@
 }
 
 
+@media (min-width: 300px) and (max-width: 800px) {
+
+    .search-result-container {
+        border:none;
+        border-bottom: 1px solid lightgray;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .search-result-info {
+       min-width: 70vw;
+    }
+
+    .CTA-link-container {
+        justify-content: center;        
+
+    }
+
+    .CTA-link{
+        min-width: 80vw;
+        font-weight: 500;
+        color: #0097ec;
+        padding: 5px 10px;
+        border-radius: 3px;
+    }
+
+    .search-result-image{
+        // width: 14vw;
+        // height: 14vw;
+        border-radius: 5px;
+    }
+}
