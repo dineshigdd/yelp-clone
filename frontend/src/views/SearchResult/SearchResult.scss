@@ -130,6 +130,32 @@
        min-width: 70vw;
     }
 
+
+    .applied-filters {       
+        flex-direction: row-reverse;               
+        justify-content: flex-end;
+        margin: 5px 0 0 0;
+    }
+ 
+
+    .alias{
+        background-color: transparent;
+        color:  #0073bb;
+        padding: 0;
+        border-radius: 3px;
+        font-weight: 500;
+        font-size: small;
+    
+    }
+
+    .applied-filters > li:nth-child(5){
+        display: none;        
+    }
+
+    .review-container>svg{
+        display: none;
+    }
+ 
     .CTA-link-container {
         justify-content: center;        
 
