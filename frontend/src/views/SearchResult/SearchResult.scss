@@ -21,8 +21,8 @@
 }
 
 .search-result-image{
-    width: 14vw;
-    height: 14vw;
+    width: 20vw;
+    height: 20vw;
     border-radius: 5px;
 }
 
@@ -121,22 +121,32 @@
 
     .search-result-container {
         border:none;
+        border-radius: 0;
         border-bottom: 1px solid lightgray;
         margin: 0;
         padding: 20px;
     }
-
+    
     .search-result-info {
-       min-width: 70vw;
+        max-width: 65vw;
     }
 
+    .single-search-result-container {
+        
+        // max-width: 50vw;
+    }
 
     .applied-filters {       
         flex-direction: row-reverse;               
         justify-content: flex-end;
         margin: 5px 0 0 0;
+      
     }
  
+    .applied-filters > li{
+        margin: 3px;
+        overflow-wrap: break-word;
+    }
 
     .alias{
         background-color: transparent;
@@ -157,8 +167,7 @@
     }
  
     .CTA-link-container {
-        justify-content: center;        
-
+        max-width: 85vw;
     }
 
     .CTA-link{

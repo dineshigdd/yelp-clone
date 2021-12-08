@@ -3,13 +3,13 @@
 .App {
   text-align: center;
   background-color: $bg-color;
-  width:100%;
+  min-width:fit-content;
 }
 
 .App-header {
   position: fixed;
-  width: 100vw;
-  background-color: $bg-color-main;
+  width: 105vw;
+  background-color: $bg-color;
   min-height: 10vh;
   display: flex;  
   align-items: center;
@@ -153,7 +153,7 @@
 }
 
 .App-logo-and-menu-container svg , .mobile-filter-list-map-links {
-        display: none;
+    display: none;
     
 }
 
@@ -193,7 +193,7 @@
     justify-content: center;
     position: fixed;
     top: 0px;
-    min-width: 100vw;
+    // min-width: 100vw;
     /* z-index: 100000; */    
     margin: 0;
     min-height: 7vh;
@@ -208,12 +208,13 @@
  
   }
 
-  .mobile-menu-icon{
+  .App-logo-and-menu-container > svg {
     position: relative;
     top: 12px;
-    left: 33vw;
-    color: $bg-color-main;
+    left: 36vw;
+    color: white;
     cursor: pointer;
+    display: inherit;
   }
 
 
@@ -244,7 +245,7 @@
     align-self: stretch;
     border: 1px solid $lightgray;
     max-height: 25px;
-    min-width: 100vw;
+    min-width: 110vw;
   }
 
   .action-buttons{
@@ -255,7 +256,7 @@
 }
 
   #map-button {
-    margin-right: 30px;
+    margin-right:55px;
 }
 
 .App-main-section{
