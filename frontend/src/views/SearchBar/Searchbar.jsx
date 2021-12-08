@@ -33,9 +33,8 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
     }
     
    const onsubmitHandler = async  (e) =>{
-       e.preventDefault();
-        dispatch(getBusinsessInfo({ term, location }));
-      
+        e.preventDefault();
+        dispatch(getBusinsessInfo({ term, location }));        
    }
 
     return (

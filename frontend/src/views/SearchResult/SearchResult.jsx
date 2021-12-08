@@ -7,25 +7,16 @@ import { getReviews } from '../../actions/bussiness';
 import business from '../../reducers/business';
 import { color } from '@mui/system';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
-import MobileSearchResult from './MobileSearchResult/MobileSearchResult'
 
 
-function SearchResult() {     
-     
+function SearchResult() {      
 
-const [ state , setState ] = useState();
    
 const businesses =  useSelector( ({ state }) => state.businesses ); 
-
-
-
-
 const dispatch = useDispatch();
 const reviews =  useSelector( ( { state } ) => state.reviews )
 
-const comment = Object.keys(reviews).map( (e,k) =>  reviews[e].reviews.map( (item,i) => ( item )));
-// reviews[ Object.keys(reviews)].reviews
-//  Object.keys(reviews).reviews.map( review => console.log( review));
+
 
 
 useEffect(()=>{  
@@ -34,13 +25,8 @@ useEffect(()=>{
      
   },[dispatch]);
   
-
-  
   
 
-// console.log( reviews[0].text);
-// reviews.map( review[0] => console.log( review.text));
-// return <div>Test</div>
 
  return   businesses.map( ( business, key ) =>    
         <div className="search-result-container" key={ key }>           

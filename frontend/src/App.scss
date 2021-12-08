@@ -1,15 +1,14 @@
 @import './style-variables/colors';
 
 .App {
-  text-align: center;
-  background-color: $bg-color;
+  text-align: center; 
   min-width:fit-content;
 }
 
 .App-header {
   position: fixed;
-  width: 105vw;
-  background-color: $bg-color;
+  background-color: $bg-color-main;
+  width: 100vw; 
   min-height: 10vh;
   display: flex;  
   align-items: center;
@@ -166,12 +165,18 @@
 
 @media (min-width: 300px) and (max-width: 800px) {
   
+  .App,.App-header{
+    background-color: $bg-color;
+  }
+
+  .App-header {
+    width: 105vw; 
+  }
 
   .App-header, .App-search-bar-container{
     flex-direction: column;   
   }
  
-
   .App-header-right-corner{
     display: none;
   }
@@ -245,7 +250,7 @@
     align-self: stretch;
     border: 1px solid $lightgray;
     max-height: 25px;
-    min-width: 110vw;
+    min-width: 103vw;
   }
 
   .action-buttons{

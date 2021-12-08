@@ -10,7 +10,9 @@ import { getBusinsessInfo , getReviews } from './actions/bussiness';
 
 function App() {
 
-const [state, setstate] = useState(null);
+ const [state, setstate] = useState(null);
+
+ const [ mobileView, setMobileView ] = useState(null); 
  const [btnState, setBtnstate] = useState(true);
  const businesses =  useSelector( ({ state }) => state.businesses ); 
  
@@ -24,6 +26,9 @@ const [state, setstate] = useState(null);
  
 //  businesses.map( business => businessId.push( business.id ));
 //  businessId.map( id => dispatch( getReviews( id )));
+
+
+
 
 useEffect(()=>{  
   dispatch( getBusinsessInfo({ term, location }));
@@ -43,15 +48,22 @@ businesses.map( business => dispatch( getReviews( business.id )));
  const [ isfilterListMapButtonState, setIsFilterListMapButtonState ] = useState(true);
  const [ filterBar, setFilterBar ] = useState( true );
  
- window.addEventListener('resize', function(event) {
-  // console.log(document.body.clientWidth )
-  if( document.body.clientWidth < 800 ){
-    setFilterBar( false );
-  }else{
-    setFilterBar( true );
-  }
-}, true);
+ window.addEventListener('load', WindowLoadandResizeActions , true);
+ window.addEventListener('resize', WindowLoadandResizeActions , true);
 
+ function WindowLoadandResizeActions (event) {  
+  if( document.body.clientWidth < 800 ){
+
+    setFilterBar( false );  
+    setMobileView(true);
+    
+
+  }else{
+
+    setFilterBar( true );
+    setMobileView( false );
+  }
+}
 
 
  const FilterListMapBar = ({ isfilter })=>(          
@@ -101,7 +113,13 @@ businesses.map( business => dispatch( getReviews( business.id )));
  useEffect(()=> {  
   
       if( !filterBar ){     
-        setstate(null);            
+        setstate(null);  
+        setstate(
+          <div className="App-sidebar-right">
+            <h2 className="search-result-heading">{ `The 10 Best Places near ${ location }`}</h2>
+            <h3 className="search-result-heading">All Results</h3>  
+          <SearchResult /> 
+        </div>)          
     }else{      
       setstate(<div className="App-sidebar-left"><Filters/></div>);   
     } 
@@ -116,7 +134,7 @@ businesses.map( business => dispatch( getReviews( business.id )));
  const displaySections = ( component )=>{
    switch(component){
         case 'filters':   
-       
+
         // if( filterBar ){        
         //   document.getElementById('filter-button').textContent = 'Filters';
         //   // setstate(<div className="App-sidebar-left"><Filters/></div>)
@@ -136,27 +154,25 @@ businesses.map( business => dispatch( getReviews( business.id )));
       // setBtnstate( false )
      break;
 
-     case 'search-result-lg-screen':        
-    //  setstate(
-    //  <>        
-    //   <div className="App-sidebar-left"><Filters/></div>
-    //   <aside className="App-sidebar-right">     <SearchResult businesses={ businesses }/>
-    //           {/* { businesses.map( ( business, key) => <SearchResult key={ key } business={ business }/> ) } */}
-    //   </aside>
-    // </>
-    // );  
-     
+    case 'list':
+       //display list of search result     
+   
+       
+       setstate(
+        <div className="App-sidebar-right">
+        <h2 className="search-result-heading">{ `The 10 Best Places near ${ location }`}</h2>
+        <h3 className="search-result-heading">All Results</h3>  
+          <SearchResult /> 
+      </div>   
+       )
+    
       break;
-     default:
-       //display list of search results
-      const searchReasult = [0,1,2];
-      setstate(<aside className="App-sidebar-right">{ searchReasult.map( e => <SearchResult /> ) }</aside>);     
-      // setBtnstate( false )
-      break;
+    
+
    }
     } 
  
-
+  
     
   return (
     <div className="App">
@@ -186,22 +202,26 @@ businesses.map( business => dispatch( getReviews( business.id )));
             </div>
     </header>
 
-      <main className="App-main-section">
-        
+      <main className="App-main-section">        
         { isfilterListMapButtonState ? <FilterListMapBar isfilter={ filterBar }/>:null }
-      {/* { filterListMapButtonState }  */}
-        
+      {/* { filterListMapButtonState }  */}       
        
-       {  state } 
-       <div className="App-sidebar-right App-search-result-section">
-       <h2 className="search-result-heading">{ `The 10 Best Places near ${ location }`}</h2>
-       <h3 className="search-result-heading">All Results</h3>
-         <SearchResult /> 
-         
-         </div> 
-       <div><Map /></div>
-      </main>
-      
+       {  state }           
+       { !mobileView ?
+           <> 
+                <div className="App-sidebar-right">
+                  <h2 className="search-result-heading">{ `The 10 Best Places near ${ location }`}</h2>
+                  <h3 className="search-result-heading">All Results</h3>  
+                    <SearchResult /> 
+               </div>   
+                <div className="App-sidebar-right">            
+                  <div><Map /></div>
+               </div> 
+            </>
+            :
+            <></>
+       }
+      </main>      
     </div>
   );
 }
