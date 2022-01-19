@@ -1,4 +1,4 @@
-import React, { useState  } from 'react';
+import React, { useState, useEffect  } from 'react';
 import './SearchBar.scss'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { getBusinsessInfo } from '../../actions/bussiness';
@@ -11,13 +11,15 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
     const [ term, setTerm ] = useState(null);
     const [ location, setLocation ] = useState(null);
     const dispatch = useDispatch();
+    const [ moileSearch , setMobileSearch ] = useState(false);
  
     
 
   
     // const [ button , setButton] = useState();
     
-    const displayInputControls = ()=><input className="location-input" type="text"></input>;
+    const displayInputControls = ()=><input className="location-input" type="text" 
+                                    onChange={ (e)=>setLocation( e.target.value )}/>;
 
     const displayButtonControls = ()=>{
         return (
@@ -25,17 +27,28 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
             <div  onClick={()=>{ 
                     setInput( null) ;
                     IsFilterListMapButtonState( true )}} className="mobile-cancel-link">
-            <a>Cancel</a>
+                    <a>Cancel</a>
             </div>
-            <SearchRoundedIcon  fontSize="large" />
+            <div className="mobie-search-icon-inner-contianer" onClick={ ()=>setMobileSearch( true )   }>
+                  <SearchRoundedIcon   fontSize="large" />
+            </div>
        </div>
         )
     }
     
+    
    const onsubmitHandler = async  (e) =>{
-        e.preventDefault();
+        e.preventDefault();       
         dispatch(getBusinsessInfo({ term, location }));        
    }
+
+   
+   
+    useEffect(()=>{  
+         console.log( term + " " + location );
+         dispatch(getBusinsessInfo({ term, location }));     
+         setMobileSearch( false );
+    },[moileSearch === true]);
 
     return (
         // <div>
@@ -48,6 +61,7 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
                                 IsFilterListMapButtonState( false )}} 
                                 list="search-criteria" name="browser" className="search-criteria" id="search-criteria" 
                                 placeholder="tacos, cheap dinner, Max's"
+                                onChange={ (e)=>setTerm(e.target.value)}
                              />
 
                             <datalist id="search-criteria">

@@ -127,12 +127,16 @@ businesses.map( business => dispatch( getReviews( business.id )));
 
 
 
- 
+
 
 
 
  const displaySections = ( component )=>{
    switch(component){
+        case 'search':                
+              dispatch(getBusinsessInfo({ term, location })); 
+              <SearchResult /> 
+        break;
         case 'filters':   
 
         // if( filterBar ){        
@@ -219,7 +223,12 @@ businesses.map( business => dispatch( getReviews( business.id )));
                </div> 
             </>
             :
-            <></>
+            <>  <div className="App-sidebar-right">
+                  <h2 className="search-result-heading">{ `The 10 Best Places near ${ location }`}</h2>
+                  <h3 className="search-result-heading">All Results</h3>  
+                    <SearchResult /> 
+               </div>
+            </>
        }
       </main>      
     </div>

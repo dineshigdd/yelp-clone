@@ -109,10 +109,17 @@
         cursor: pointer;
     }
     
-        
-    .mobile-search-icon-contianer > svg{       
+    .mobie-search-icon-inner-contianer {
+        display: flex;
+        margin:14px;
+    }
+
+    .mobie-search-icon-inner-contianer> svg{    
+        display:inherit;   
         padding: 2px 19px;
-        font-size: 25px;
+        font-size: 25px;       
+        color:white;
+        cursor:pointer;
     }
 
     #mobile-search-input-container{
