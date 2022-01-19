@@ -92,35 +92,33 @@
 
     .mobile-search-icon-contianer {
         display: flex;
-        min-width: 95vw;
-        align-self: 25px;
+        min-width: 90vw;
+        height: 25px;
         justify-content: space-between;
         /* position: inherit; */
     }
 
-    .mobile-cancel-link,   .mobile-search-icon-contianer > svg{
+    
+    .mobile-cancel-link,   .mobie-search-icon-inner-contianer> svg{
         display: flex;      
         align-self:normal;  
-        margin: 14px;
+        align-items: center;     
         color: white;
         background-color: #F40D15;
-        padding: 5px 10px;
         border-radius: 5px;
         cursor: pointer;
     }
     
-    .mobie-search-icon-inner-contianer {
-        display: flex;
-        margin:14px;
+    .mobile-cancel-link > a {
+        padding:5px 10px;
     }
 
-    .mobie-search-icon-inner-contianer> svg{    
-        display:inherit;   
-        padding: 2px 19px;
-        font-size: 25px;       
-        color:white;
-        cursor:pointer;
+    .mobie-search-icon-inner-contianer> svg{
+        font-size: 20px;
+        padding: 2px 20px;
     }
+
+  
 
     #mobile-search-input-container{
         display: block;
