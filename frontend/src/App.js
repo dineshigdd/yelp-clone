@@ -14,8 +14,9 @@ function App() {
 
  const [ mobileView, setMobileView ] = useState(null); 
  const [btnState, setBtnstate] = useState(true);
- const businesses =  useSelector( ({ state }) => state.businesses ); 
+ const businesses =  useSelector( ({ state }) => state.businesses); 
  
+console.log( businesses);
  const location = 'Los Angeles, CA';
  const term  = '';
  

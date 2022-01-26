@@ -7,7 +7,7 @@ let  businesses = null;
 let reviews = {};
 let index = 0;
 let reviewID = [];
-const deafultBusiness = { "businesses":[{
+/* const deafultBusiness = { "businesses":[{
     "id": "siuAT2O_VdNBdboJWbiV-Q",
     "alias": "tacos-tacuba-van-nuys",
     "name": "Tacos Tacuba",
@@ -92,7 +92,7 @@ const deafultBusiness = { "businesses":[{
 }
 
 ]
-};
+}; */
 
 module.exports = {
 
