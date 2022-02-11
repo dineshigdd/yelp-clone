@@ -14,11 +14,11 @@ function App() {
 
  const [ mobileView, setMobileView ] = useState(null); 
  const [btnState, setBtnstate] = useState(true);
- const businesses =  useSelector( ({ state }) => state.businesses); 
+ const  { businesses } =  useSelector( ({ state }) => state.businesses ); 
  
 console.log( businesses);
  const location = 'Los Angeles, CA';
- const term  = '';
+ const term  = 'taco';
  
  // dispatching redux actions 
  const dispatch = useDispatch();
@@ -33,10 +33,13 @@ console.log( businesses);
 
 useEffect(()=>{  
   dispatch( getBusinsessInfo({ term, location }));
-  
+ 
 },[dispatch ]);
 
-businesses.map( business => dispatch( getReviews( business.id )));
+useEffect(()=>{    
+  businesses.map( business => dispatch( getReviews( business.id )));
+},[dispatch ]);
+
 
 //  const [ filterbtnState, setFilterBtnstate] = useState(false);
  
@@ -220,7 +223,7 @@ businesses.map( business => dispatch( getReviews( business.id )));
                     <SearchResult /> 
                </div>   
                 <div className="App-sidebar-right">            
-                  <div><Map /></div>
+                  <div><Map businesses/></div>
                </div> 
             </>
             :

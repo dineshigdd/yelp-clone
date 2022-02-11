@@ -12,7 +12,7 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 function SearchResult() {      
 
    
-const businesses =  useSelector( ({ state }) => state.businesses ); 
+const { businesses } =  useSelector( ({ state }) => state.businesses ); 
 const dispatch = useDispatch();
 const reviews =  useSelector( ( { state } ) => state.reviews )
 
@@ -28,7 +28,7 @@ useEffect(()=>{
   
 
 
- return   businesses.map( ( business, key ) =>    
+ return  businesses.map( ( business, key ) =>    
         <div className="search-result-container" key={ key }>           
             <div className="single-search-result-container">
                 <div>

@@ -45,7 +45,6 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
    
    
     useEffect(()=>{  
-         console.log( term + " " + location );
          dispatch(getBusinsessInfo({ term, location }));     
          setMobileSearch( false );
     },[moileSearch === true]);
