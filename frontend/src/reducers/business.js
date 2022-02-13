@@ -1,5 +1,5 @@
 const initialState = { 
-    businesses: { businesses: [] } ,
+    businesses: { businesses: []} ,
     region: {
         longitude: -118.32138061523438, 
         latitude: 34.0615895441259
@@ -16,13 +16,11 @@ export default ( state = initialState, action ) => {
     switch( action.type ){
         case 'FETCH_ALL':            
                  newState.businesses   = action.payload;                  
-                 /* newState.businesses = action.payload.businesses;*/  
                  newState.region.longitude = action.payload.region.center.longitude;
                  newState.region.latitude = action.payload.region.center.latitude;
                  console.log(newState.region)                 
                  return newState
-        case 'FETCH_REVIEWS':      
-        
+        case 'FETCH_REVIEWS':              
               newState.reviews = action.payload;           
               return  newState;
         default : 

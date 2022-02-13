@@ -16,9 +16,9 @@ function App() {
  const [btnState, setBtnstate] = useState(true);
  const  { businesses } =  useSelector( ({ state }) => state.businesses ); 
  
-console.log( businesses);
- const location = 'Los Angeles, CA';
- const term  = 'taco';
+ let location = 'Los Angeles, CA';
+ let term  = 'taco';
+ const initialBusinessId = ["QKovUc1TmSNtZh0j5ZEagw","o5AL9lZhfa6glcS0vrmdkg"];
  
  // dispatching redux actions 
  const dispatch = useDispatch();
@@ -31,22 +31,15 @@ console.log( businesses);
 
 
 
-useEffect(()=>{  
-  dispatch( getBusinsessInfo({ term, location }));
- 
-},[dispatch ]);
-
 useEffect(()=>{    
-  businesses.map( business => dispatch( getReviews( business.id )));
-},[dispatch ]);
+    dispatch( getBusinsessInfo({ term, location }));
+  
+},[dispatch]);
 
-
-//  const [ filterbtnState, setFilterBtnstate] = useState(false);
- 
 
  const [ logoMenuState , setLogoMenuState ] = useState(<>
-  <img className='yelp-logo' alt="yelp-logo"/>          
-  <MenuIcon className="mobile-menu-icon"/>
+      <img className='yelp-logo' alt="yelp-logo"/>          
+      <MenuIcon className="mobile-menu-icon"/>
  </>);
 
  const [ isfilterListMapButtonState, setIsFilterListMapButtonState ] = useState(true);
@@ -137,7 +130,8 @@ useEffect(()=>{
 
  const displaySections = ( component )=>{
    switch(component){
-        case 'search':                
+        case 'search':          
+               
               dispatch(getBusinsessInfo({ term, location })); 
               <SearchResult /> 
         break;

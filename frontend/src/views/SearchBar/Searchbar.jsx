@@ -1,9 +1,10 @@
 import React, { useState, useEffect  } from 'react';
 import './SearchBar.scss'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
-import { getBusinsessInfo } from '../../actions/bussiness';
-import {  useDispatch } from 'react-redux';
+import { getBusinsessInfo , getReviews } from '../../actions/bussiness';
+import {  useDispatch ,useSelector } from 'react-redux';
 import { SearchResult } from '..';
+
 
 function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySections }) {
     
@@ -12,7 +13,7 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
     const [ location, setLocation ] = useState(null);
     const dispatch = useDispatch();
     const [ moileSearch , setMobileSearch ] = useState(false);
- 
+    const  { businesses } =  useSelector( ({ state }) => state.businesses ); 
     
 
   
@@ -38,10 +39,15 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
     
     
    const onsubmitHandler = async  (e) =>{
-        e.preventDefault();       
+        e.preventDefault();     
+        console.log( "term:"+ term +" " + "location:"+ location );  
         dispatch(getBusinsessInfo({ term, location }));        
+        
    }
 
+   useEffect(()=>{
+    businesses.map( business => dispatch( getReviews( business.id )));
+   },[businesses])
    
    
     useEffect(()=>{  

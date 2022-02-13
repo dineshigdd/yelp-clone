@@ -19,11 +19,11 @@ const reviews =  useSelector( ( { state } ) => state.reviews )
 
 
 
-useEffect(()=>{  
+/* useEffect(()=>{  
 
     businesses.map( business =>  dispatch( getReviews( business.id )))
      
-  },[dispatch]);
+  },[dispatch]); */
   
   
 
@@ -58,14 +58,21 @@ useEffect(()=>{
                     </div>
                         <div className="review-container">                        
                         <ChatBubbleOutlineIcon />            
-                            { 
+                            {
                             Object.keys(reviews).map( (e,k) =>  ( e == business.id) ? 
                                 reviews[e].reviews.map( (item, i)  => (i === 0 ) ?
-                                <p className="review-excerpt" key={ i }>{ item.text }<a href="#" style={{ textDecoration: "none" ,fontWeight:"bold" , color: "rgba(2,122,151,1)" }}>more</a></p>
-                                 : null )                                                       
-                                :'')
+                                <p className="review-excerpt" key={ i }>{ item.text }<a href="#" 
+                                style={{ textDecoration: "none" ,fontWeight:"bold" , color: "rgba(2,122,151,1)" }}>more</a></p>
+                                 : null ) :'')
 
-                            }       
+                            } 
+                            {/* {
+                            Object.keys(reviews).map( (e,k) =>  ( e == business.id) ? 
+                                reviews[e].reviews.map( (item, i)  => (i === 0 ) ? console.log( item.text)
+                                 
+                                 : null ) :'')
+
+                            }    */}  
 
                                      
                         </div>              
