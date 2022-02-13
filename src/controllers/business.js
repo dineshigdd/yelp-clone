@@ -103,7 +103,7 @@ getBusinsessInfo : (  req, res ) => {
     let searchRequest = {
         term:req.query.term,
         location: req.query.location,
-        limit:2
+        limit:5
     }
   
         
