@@ -14,7 +14,7 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
     const dispatch = useDispatch();
     const [ moileSearch , setMobileSearch ] = useState(false);
     const  { businesses } =  useSelector( ({ state }) => state.businesses ); 
-    
+ 
 
   
     // const [ button , setButton] = useState();

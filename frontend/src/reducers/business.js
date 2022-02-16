@@ -1,11 +1,13 @@
 const initialState = { 
     businesses: { businesses: []} ,
     region: {
-        longitude: -118.32138061523438, 
-        latitude: 34.0615895441259
+        center:{
+            longitude: -118.32138061523438, 
+            latitude: 34.0615895441259 
+        }
      }, 
      reviews : {}  }
-
+    
 
 // Los Angeles, CA, USA Latitude and longitude coordinates are: 34.052235, -118.243683.
 export default ( state = initialState, action ) => {
@@ -16,9 +18,8 @@ export default ( state = initialState, action ) => {
     switch( action.type ){
         case 'FETCH_ALL':            
                  newState.businesses   = action.payload;                  
-                 newState.region.longitude = action.payload.region.center.longitude;
-                 newState.region.latitude = action.payload.region.center.latitude;
-                 console.log(newState.region)                 
+                 newState.region = action.payload.region;
+                                
                  return newState
         case 'FETCH_REVIEWS':              
               newState.reviews = action.payload;           

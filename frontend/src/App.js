@@ -14,17 +14,19 @@ function App() {
 
  const [ mobileView, setMobileView ] = useState(null); 
  const [btnState, setBtnstate] = useState(true);
- const  { businesses } =  useSelector( ({ state }) => state.businesses ); 
+//  const  { businesses } =  useSelector( ({ state }) => state.businesses );
+ const { center } =  useSelector( ({ state }) => state.region );
+  
+ console.log( center)
  
  let location = 'Los Angeles, CA';
  let term  = 'taco';
- const initialBusinessId = ["QKovUc1TmSNtZh0j5ZEagw","o5AL9lZhfa6glcS0vrmdkg"];
+//  const initialBusinessId = ["QKovUc1TmSNtZh0j5ZEagw","o5AL9lZhfa6glcS0vrmdkg"];
  
  // dispatching redux actions 
  const dispatch = useDispatch();
 //  let businessId = [];
 
- 
 //  businesses.map( business => businessId.push( business.id ));
 //  businessId.map( id => dispatch( getReviews( id )));
 
@@ -33,7 +35,7 @@ function App() {
 
 useEffect(()=>{    
     dispatch( getBusinsessInfo({ term, location }));
-  
+    // state.region.center  = { longitude, latitude}
 },[dispatch]);
 
 
@@ -217,7 +219,7 @@ useEffect(()=>{
                     <SearchResult /> 
                </div>   
                 <div className="App-sidebar-right">            
-                  <div><Map businesses/></div>
+                  <div><Map center={center}/></div>
                </div> 
             </>
             :

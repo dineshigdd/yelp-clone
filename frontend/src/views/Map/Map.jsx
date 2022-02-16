@@ -1,33 +1,42 @@
 // import MapContainer from "./MapContainer";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import React, {useState} from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvent } from 'react-leaflet'
+import React, {useEffect, useState} from "react";
 import { useSelector  } from 'react-redux';
 import './Map.scss';
-import { Icon } from "leaflet";
+import { Icon,  } from "leaflet";
 // import * as parkData from "./samplePark.json";
 
-export default function Map() {
-  const [ activePark, setActivePark ] = useState(null);
-  const { businesses } =  useSelector( ({ state }) => state.businesses );
-  const { longitude, latitude } = useSelector( ({ state }) => state.region );
- 
 
-   const position = [ latitude , longitude ];
+export default function Map({center}) {
+
+  const { businesses } =  useSelector( ({ state }) => state.businesses );
+  const { longitude, latitude } = center;
+ 
+  
+  //  const region = [ latitude , longitude ];
   /*const skater = new Icon({
     iconUrl: "/skateboarding.svg",
     iconSize: [25, 25]
   });
  */
-console.log(position)
+console.log(longitude)
 
-//  longitude: -118.32138061523438, latitude: 34.0615895441259}
+function MapView() {
+  let map = useMap();
+  map.setView( [  latitude , longitude ] , map.getZoom());
+ 
+  return null
+}
+
 
   return (
-      <MapContainer center={ position } zoom={ 10 } scrollWheelZoom={false}>
+      <MapContainer center={[  latitude , longitude ]}
+         zoom={ 10 } scrollWheelZoom={false}>
           <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
+  
   {businesses.map( item => (
     
         <Marker
@@ -40,17 +49,14 @@ console.log(position)
         >
             <Popup>
               { item.name }
-          </Popup>
+            </Popup>
          
 
         </Marker>
       ))}
 
-
+    <MapView />
 </MapContainer>
-    
-  
-     
   )
 }
 //https://www.digitalocean.com/community/tutorials/how-to-integrate-the-google-maps-api-into-react-applications

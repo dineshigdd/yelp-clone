@@ -66,15 +66,6 @@ const reviews =  useSelector( ( { state } ) => state.reviews )
                                  : null ) :'')
 
                             } 
-                            {/* {
-                            Object.keys(reviews).map( (e,k) =>  ( e == business.id) ? 
-                                reviews[e].reviews.map( (item, i)  => (i === 0 ) ? console.log( item.text)
-                                 
-                                 : null ) :'')
-
-                            }    */}  
-
-                                     
                         </div>              
                         
                 </div>
