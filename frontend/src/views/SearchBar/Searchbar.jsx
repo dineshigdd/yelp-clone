@@ -1,6 +1,7 @@
 import React, { useState, useEffect  } from 'react';
 import './SearchBar.scss'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import MenuIcon from '@mui/icons-material/Menu';
 import { getBusinsessInfo , getReviews } from '../../actions/bussiness';
 import {  useDispatch ,useSelector } from 'react-redux';
 import { SearchResult } from '..';
@@ -27,7 +28,11 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
         <div className="mobile-search-icon-contianer">
             <div  onClick={()=>{ 
                     setInput( null) ;
-                    IsFilterListMapButtonState( true )}} className="mobile-cancel-link">
+                    IsFilterListMapButtonState( true )
+                    LogoMenuState(<>
+                     <img className='yelp-logo' alt="yelp-logo"/>     
+                     <MenuIcon className="mobile-menu-icon"/></>)
+                    }} className="mobile-cancel-link">
                     <a>Cancel</a>
             </div>
             <div className="mobie-search-icon-inner-contianer" onClick={ ()=>setMobileSearch( true )   }>
@@ -46,7 +51,7 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
    }
 
    useEffect(()=>{
-    businesses.map( business => dispatch( getReviews( business.id )));
+        businesses.map( business => dispatch( getReviews( business.id )));
    },[businesses])
    
    
@@ -78,7 +83,7 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
                             </datalist>
                         { input }     
                    </div>            
-
+                    {/* the code beyond this point is for large */}
                    <div id="lg-screen-search-input-container">
                             <input list="search-criteria" name="browser" className="lg-screen-search-criteria" id="lg-screen-search-criteria" 
                                 placeholder="Dsektop tacos, cheap dinner, Max's"

@@ -11,7 +11,6 @@ import { getBusinsessInfo , getReviews } from './actions/bussiness';
 function App() {
 
  const [state, setstate] = useState(null);
-
  const [ mobileView, setMobileView ] = useState(null); 
  const [btnState, setBtnstate] = useState(true);
 //  const  { businesses } =  useSelector( ({ state }) => state.businesses );
@@ -39,10 +38,12 @@ useEffect(()=>{
 },[dispatch]);
 
 
- const [ logoMenuState , setLogoMenuState ] = useState(<>
+ const [ logoMenuState , setLogoMenuState ] = useState(
+ <>
       <img className='yelp-logo' alt="yelp-logo"/>          
       <MenuIcon className="mobile-menu-icon"/>
- </>);
+ </>
+ );
 
  const [ isfilterListMapButtonState, setIsFilterListMapButtonState ] = useState(true);
  const [ filterBar, setFilterBar ] = useState( true );
@@ -154,7 +155,7 @@ useEffect(()=>{
 
      case 'map':
      
-      setstate( <section className="App-search-result-section"><Map /></section>);     
+      setstate( <section className="App-search-result-section"><Map center={center}/></section>);     
       // setBtnstate( false )
      break;
 
@@ -223,12 +224,7 @@ useEffect(()=>{
                </div> 
             </>
             :
-            <>  <div className="App-sidebar-right">
-                  <h2 className="search-result-heading">{ `The 10 Best Places near ${ location }`}</h2>
-                  <h3 className="search-result-heading">All Results</h3>  
-                    <SearchResult /> 
-               </div>
-            </>
+            ''
        }
       </main>      
     </div>
