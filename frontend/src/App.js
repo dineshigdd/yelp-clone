@@ -38,12 +38,7 @@ useEffect(()=>{
 },[dispatch]);
 
 
- const [ logoMenuState , setLogoMenuState ] = useState(
- <>
-      <img className='yelp-logo' alt="yelp-logo"/>          
-      <MenuIcon className="mobile-menu-icon"/>
- </>
- );
+ 
 
  const [ isfilterListMapButtonState, setIsFilterListMapButtonState ] = useState(true);
  const [ filterBar, setFilterBar ] = useState( true );
@@ -181,19 +176,15 @@ useEffect(()=>{
     
   return (
     <div className="App">
-      <header className='App-header'>         
-            <div className="App-logo-and-menu-container">           
-                { logoMenuState }                                                 
-            </div>
-     
-            <div className="App-search-bar-container">
+      <header className='App-header'>     
+          
                 <SearchBar 
-                  LogoMenuState={ setLogoMenuState } 
+                  // LogoMenuState={ setLogoMenuState } 
                   IsFilterListMapButtonState = { setIsFilterListMapButtonState }
                   displaySections = { displaySections }   
                   />
                 
-            </div>      
+                
         
             <div className="App-header-right-corner">
               <div>

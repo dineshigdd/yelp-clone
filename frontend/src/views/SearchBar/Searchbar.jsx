@@ -7,7 +7,7 @@ import {  useDispatch ,useSelector } from 'react-redux';
 import { SearchResult } from '..';
 
 
-function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySections }) {
+function SearchBar({ /*LogoMenuState ,*/ IsFilterListMapButtonState , displaySections }) {
     
     const [ input , setInput] = useState();
     const [ term, setTerm ] = useState(null);
@@ -15,7 +15,12 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
     const dispatch = useDispatch();
     const [ moileSearch , setMobileSearch ] = useState(false);
     const  { businesses } =  useSelector( ({ state }) => state.businesses ); 
- 
+    const [ logoMenuState , setLogoMenuState ] = useState(
+        <>
+             <img className='yelp-logo' alt="yelp-logo"/>          
+             <MenuIcon className="mobile-menu-icon"/>
+        </>
+        );
 
   
     // const [ button , setButton] = useState();
@@ -29,7 +34,7 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
             <div  onClick={()=>{ 
                     setInput( null) ;
                     IsFilterListMapButtonState( true )
-                    LogoMenuState(<>
+                    setLogoMenuState(<>
                      <img className='yelp-logo' alt="yelp-logo"/>     
                      <MenuIcon className="mobile-menu-icon"/></>)
                     }} className="mobile-cancel-link">
@@ -63,11 +68,14 @@ function SearchBar({ LogoMenuState , IsFilterListMapButtonState , displaySection
     return (
         // <div>
             <div className="search-bar-outer-container">   
+            <div className="logo-and-menu-container">           
+                { logoMenuState }                                                 
+            </div>
                 <div className="search-bar-inner-container">
                     <div id="mobile-search-input-container">
                             <input onClick={()=>{ 
                                 setInput( displayInputControls );
-                                LogoMenuState( displayButtonControls );
+                                setLogoMenuState( displayButtonControls );
                                 IsFilterListMapButtonState( false )}} 
                                 list="search-criteria" name="browser" className="search-criteria" id="search-criteria" 
                                 placeholder="tacos, cheap dinner, Max's"

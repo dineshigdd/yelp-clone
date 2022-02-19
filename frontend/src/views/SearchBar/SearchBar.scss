@@ -1,3 +1,27 @@
+/* .search-bar-container{  
+    box-shadow: lightgray 2px 5px 10px 6px;
+    border-radius: 5px;
+    min-width: 45vw;
+    margin:auto;
+} */
+@import '../../style-variables/colors';
+
+.logo-and-menu-container{
+    display: flex;    
+    // z-index: inherit;
+    margin-right: 30px;
+}
+
+.logo-and-menu-container svg{
+    display: none;
+}
+ 
+.yelp-logo {  
+    margin-left:2vw;
+    content:url("../../assets/images/yelp-logo.png");
+
+}
+
 .search-bar-outer-container{
     display: flex;
     height: fit-content;
@@ -5,9 +29,11 @@
 }
 
 .search-bar-inner-container{
+    box-shadow: $lightgray 2px 5px 10px 6px;
+    min-width: 45vw;
+    margin:auto;    
     padding-top: 10px;
     padding-left: 5px;
-    padding-right: 5px;    
     padding-bottom: 5px;
 }
 
@@ -75,9 +101,48 @@
 }
 
 
-@media (max-width: 800px) {
+
+@media (min-width: 300px) and (max-width: 800px) {
+    .search-bar-container {
+        height: fit-content;
+        box-shadow: none;
+        background-color: $bg-color;
+        min-width: 100%;
+        border-radius: 0px;
+        margin-bottom: -20px;
+        margin-top:40px; 
+      }
+
+      .logo-and-menu-container{
+        justify-content: center;
+       
+        }
+
+     .yelp-logo {  
+        margin-left:2vw;
+        width: 10vw;
+        height: 8vw;
+        content:url("../../assets/images/yelp-logo-mobile.png");
+     
+      }
+    
+      .logo-and-menu-container > svg {
+        position: relative;
+        top: 12px;
+        left: 36vw;
+        color: white;
+        cursor: pointer;
+        display: inherit;
+      }
+
     .search-bar-outer-container , .search-criteria,.search-icon-container{
       flex-direction: column;
+    }
+
+    .search-bar-inner-container{
+        box-shadow: none;
+        padding-left: 15px;
+        padding-right: 30px;
     }
 
     .search-criteria, .location-input{
@@ -99,7 +164,7 @@
     }
 
     
-    .mobile-cancel-link,   .mobie-search-icon-inner-contianer> svg{
+    .mobile-cancel-link, .mobie-search-icon-inner-contianer> svg{
         display: flex;      
         align-self:normal;  
         align-items: center;     
@@ -117,8 +182,6 @@
         font-size: 20px;
         padding: 2px 20px;
     }
-
-  
 
     #mobile-search-input-container{
         display: block;
