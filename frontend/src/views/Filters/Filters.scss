@@ -92,7 +92,7 @@
 }
 
 /*--Mobile styles start ---*/
-@media (min-width: 300px) and (max-width: 800px){
+@media only screen and (min-width: 300px) and (max-width:1024px){
 
     .filter-section{
         min-width: 90vw;

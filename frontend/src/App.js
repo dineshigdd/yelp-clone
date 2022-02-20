@@ -47,7 +47,7 @@ useEffect(()=>{
  window.addEventListener('resize', WindowLoadandResizeActions , true);
 
  function WindowLoadandResizeActions (event) {  
-  if( document.body.clientWidth < 800 ){
+  if( document.body.clientWidth < 1024 ){
 
     setFilterBar( false );  
     setMobileView(true);

@@ -30,7 +30,7 @@
   display: flex;
   height: 100vh;
   position: relative;
-  top: 130px;
+  top: 30vh;
   background-color: $bg-color-main;
 }
 
@@ -61,6 +61,9 @@
 .App-header-right-corner {
     display: inherit;
     margin-right: auto;
+    margin-left: 2vw;
+    min-width: fit-content;
+    
 }
 
 
@@ -103,18 +106,18 @@
 .App-header-right-corner{
      div:first-child{
            span:first-child,span:nth-child(2){
-                margin-right: 12px;
+                // margin-right: 12px;
            }
      } 
 }
 
-// .App-header-right-corner{
-//      div:first-child{
-//         span:nth-child(2){
-//              margin-right: 12px;
-//         }
-//       }
-// }
+.App-header-right-corner{
+     div:first-child{
+        span:nth-child(2){
+            //  margin-right: 12px;
+        }
+      }
+}
 
 
 .App-header-right-corner{
@@ -155,8 +158,8 @@
 
 
 /*styles for mobile view */
-
-@media (min-width: 300px) and (max-width: 800px) {
+@media only screen and (min-width: 300px) and (max-width: 1024px){
+// @media (min-width: 300px) and (max-width: 800px) {
   
   .App,.App-header{
     background-color: $bg-color;
