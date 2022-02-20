@@ -11,7 +11,7 @@ import { getBusinsessInfo , getReviews } from './actions/bussiness';
 function App() {
 
  const [state, setstate] = useState(null);
- const [ mobileView, setMobileView ] = useState(null); 
+ const [ mobileView, setMobileView ] = useState(false); 
  const [btnState, setBtnstate] = useState(true);
 //  const  { businesses } =  useSelector( ({ state }) => state.businesses );
  const { center } =  useSelector( ({ state }) => state.region );
