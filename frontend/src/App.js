@@ -108,7 +108,7 @@ useEffect(()=>{
  useEffect(()=> {  
   
       if( !filterBar ){     
-        setstate(null);  
+        
         setstate(
           <div className="App-sidebar-right">
             <h2 className="search-result-heading">{ `The 10 Best Places near ${ location }`}</h2>
@@ -206,7 +206,7 @@ useEffect(()=>{
        { !mobileView ?
            <> 
                 <div className="App-sidebar-right">
-                  <h2 className="search-result-heading">{ `The 10 Best Places near ${ location }`}</h2>
+                  <h2 className="search-result-heading">{ `The 5 Best Places near ${ location }`}</h2>
                   <h3 className="search-result-heading">All Results</h3>  
                     <SearchResult /> 
                </div>   
