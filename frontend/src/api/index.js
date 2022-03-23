@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const url="https://yelp-clone-dinesh.netlify.app/"
+const url="https://yelp-clone-dinesh.netlify.app"
 
 
 export const fetchBussinessInfo = (search) =>  axios.get(`${url}/businesses/search?term=${ search.term }&location=${ search.location }`);
