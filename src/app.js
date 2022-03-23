@@ -29,6 +29,12 @@ app.use('/businesses', businessesRoutes );
 // }
 
 // businessApiCall();
+
+process
+  .on('SIGTERM', shutdown('SIGTERM'))
+  .on('SIGINT', shutdown('SIGINT'))
+  .on('uncaughtException', shutdown('uncaughtException'));
+  
 if( process.env.NODE_ENV == 'production'){
     app.use( express.static('../frontend/build'));
     app.get('/', ( req, res ) =>{
