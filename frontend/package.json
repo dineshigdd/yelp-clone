@@ -36,7 +36,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "http://tecforfun/yelp-clone",
   "browserslist": [
     ">0.2%",
     "not dead",
