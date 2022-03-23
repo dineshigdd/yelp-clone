@@ -30,11 +30,7 @@ app.use('/businesses', businessesRoutes );
 
 // businessApiCall();
 
-process
-  .on('SIGTERM', shutdown('SIGTERM'))
-  .on('SIGINT', shutdown('SIGINT'))
-  .on('uncaughtException', shutdown('uncaughtException'));
-  
+
 if( process.env.NODE_ENV == 'production'){
     app.use( express.static('../frontend/build'));
     app.get('/', ( req, res ) =>{
@@ -42,5 +38,6 @@ if( process.env.NODE_ENV == 'production'){
     })
 }
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+module.exports = app;
+// const port = process.env.PORT || 5000;
+// app.listen(port, () => console.log(`Server is running on port ${port}`));
