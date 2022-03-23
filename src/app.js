@@ -14,7 +14,9 @@ const cors = require('cors');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
-
+app.get('test',()=>{
+    console.log("test")
+})
 app.use('/businesses', businessesRoutes );
 // app.use('/businesses/', reviewAPI);
 // const businessApiCall = async () => {

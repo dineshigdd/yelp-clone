@@ -1,8 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "private": true,
-  "proxy": "https://localhost:5000",
+  "private": true, 
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
@@ -37,9 +36,10 @@
       "react-app/jest"
     ]
   },
+  "proxy": "http://localhost:5000",
   "browserslist": [
     ">0.2%",
-        "not dead",
-        "not op_mini all"
-      ]
+    "not dead",
+    "not op_mini all"
+  ]
 }
