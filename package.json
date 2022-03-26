@@ -17,8 +17,7 @@
     "concurrently": "^6.4.0",
     "nodemon": "^2.0.15"
   },
-  "scripts": {
-    // "start": "node .\\src\\app.js",
+  "scripts": {  
     "server": "nodemon .\\src\\app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "frontend": "npm start --prefix frontend",
