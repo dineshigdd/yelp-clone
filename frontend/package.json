@@ -42,5 +42,5 @@
     "not dead",
     "not op_mini all"
   ],
-  "proxy":"https://yelp-clone-server.herokuapp.com"
+  "proxy":"https://localhost:5000"
 }
