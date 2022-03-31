@@ -2,7 +2,7 @@ const initialState = {
     businesses: { businesses: []} ,
     region: {
         center:{
-            longitude: -118.32138061523438, 
+            longitude: -118, 
             latitude: 34.0615895441259 
         }
      }, 
@@ -14,12 +14,13 @@ export default ( state = initialState, action ) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
 
-    // console.log( newState);
+
     switch( action.type ){
         case 'FETCH_ALL':            
+        console.log( action.payload );
                  newState.businesses   = action.payload;                  
-                 newState.region = action.payload.region;
-                                
+                 newState.region =  action.payload.region;
+             
                  return newState
         case 'FETCH_REVIEWS':              
               newState.reviews = action.payload;           
