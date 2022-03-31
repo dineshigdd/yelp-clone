@@ -18,13 +18,13 @@
     "nodemon": "^2.0.15"
   },
   "scripts": {
-    "start": "node .\\src\\app.js",
-    "server": "nodemon .\\src\\app.js",
+    "start": "node ./src/app.js",
+    "server": "nodemon ./src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "frontend": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run frontend\"",
-    "f-build": "cd frontend && npm run build",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd frontend && npm install && npm run build"
+    "f-build": "cd frontend && npm run build"
+   
   },
   "repository": {
     "type": "git",
