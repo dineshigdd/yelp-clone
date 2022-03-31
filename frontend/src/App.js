@@ -14,7 +14,7 @@ function App() {
  const [ mobileView, setMobileView ] = useState(false); 
  const [btnState, setBtnstate] = useState(true);
 //  const  { businesses } =  useSelector( ({ state }) => state.businesses );
-//  const{ center }  =  useSelector( ({ state }) => state.region );
+ const{ center }  =  useSelector( ({ state }) => state.region );
  
   
 //  console.log( center)
@@ -152,7 +152,7 @@ useEffect(()=>{
      case 'map':
      
       setstate( <section className="App-search-result-section">
-        {/* <Map center={ center }/> */}
+        <Map center={ center }/>
         </section>);     
       // setBtnstate( false )
      break;
@@ -215,7 +215,7 @@ useEffect(()=>{
                </div>   
                 <div className="App-sidebar-right">            
                   <div>
-                    {/* <Map center={center}/> */}
+                    <Map center={center}/>
                     </div>
                </div> 
             </>
