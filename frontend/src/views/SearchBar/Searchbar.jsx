@@ -51,8 +51,7 @@ function SearchBar({ /*LogoMenuState ,*/ IsFilterListMapButtonState , displaySec
    const onsubmitHandler = async  (e) =>{
         e.preventDefault();     
         console.log( "term:"+ term +" " + "location:"+ location );  
-        dispatch(getBusinsessInfo({ term, location }));        
-        
+        dispatch(getBusinsessInfo({ term, location }));           
    }
 
    useEffect(()=>{
@@ -61,7 +60,15 @@ function SearchBar({ /*LogoMenuState ,*/ IsFilterListMapButtonState , displaySec
    
    
     useEffect(()=>{  
-         dispatch(getBusinsessInfo({ term, location }));     
+         dispatch(getBusinsessInfo({ term, location }));    
+
+         setInput( null) ;
+         IsFilterListMapButtonState( true )
+         setLogoMenuState(<>
+          <img className='yelp-logo' alt="yelp-logo"/>     
+          <MenuIcon className="mobile-menu-icon"/></>)         
+         displaySections('list'); 
+
          setMobileSearch( false );
     },[moileSearch === true]);
 
