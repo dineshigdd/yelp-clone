@@ -10,8 +10,8 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 
 
 function SearchResult() {      
-    let location = 'Los Angeles, CA';
-    let term  = 'taco';
+    // let location = 'Los Angeles, CA';
+    // let term  = 'taco';
    
 const { businesses } =  useSelector( ({ state }) => state.businesses ); 
 const dispatch = useDispatch();
