@@ -19,10 +19,10 @@ const reviews =  useSelector( ( { state } ) => state.reviews )
 
 
 
-useEffect(()=>{    
-    dispatch( getBusinsessInfo({ term, location }));
-    // state.region.center  = { longitude, latitude}
-},[dispatch]);
+// useEffect(()=>{    
+//     dispatch( getBusinsessInfo({ term, location }));
+//     // state.region.center  = { longitude, latitude}
+// },[dispatch]);
 /* useEffect(()=>{  
 
     businesses.map( business =>  dispatch( getReviews( business.id )))
